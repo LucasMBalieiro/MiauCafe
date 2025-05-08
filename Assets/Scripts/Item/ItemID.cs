@@ -1,37 +1,39 @@
 using UnityEngine;
 
-[System.Serializable] public enum ItemType
+namespace Item
 {
-    [InspectorName("Cafe")] Cafe = 0,
-    [InspectorName("Sorvete")] Sorvete = 1,
-    [InspectorName("Bolo")] Bolo = 2,
-    [InspectorName("Pao")] Pao = 3,
-    [InspectorName("Numero")] Numero = 9,
-
-}
-
-[System.Serializable] public class ItemID
-{
-    public ItemType type;
-    public int tier;
-
-    // Composite ID that combines type and level
-    public string GetCompositeID() => $"{(int)type}_{tier}";
-
-    public bool IsEqual(ItemID other)
+    [System.Serializable] public enum ItemType
     {
-        return type == other.type && tier == other.tier;
+        [InspectorName("Cafe")] Cafe = 0,
+        [InspectorName("Sorvete")] Sorvete = 1,
+        [InspectorName("Bolo")] Bolo = 2,
+        [InspectorName("Pao")] Pao = 3,
+        [InspectorName("Numero")] Numero = 9,
+
     }
 
-    public bool IsEqualType(ItemID other)
+    [System.Serializable] public class ItemID
     {
-        return type == other.type;
-    }
+        public ItemType type;
+        public int tier;
+    
+        public string GetID() => $"{(int)type}_{tier}";
 
-    public bool IsEqualTier(ItemID other)
-    {
-        return tier == other.tier;
-    }
+        public bool IsEqual(ItemID other)
+        {
+            return type == other.type && tier == other.tier;
+        }
+
+        public bool IsEqualType(ItemID other)
+        {
+            return type == other.type;
+        }
+
+        public bool IsEqualTier(ItemID other)
+        {
+            return tier == other.tier;
+        }
     
     
+    }
 }

@@ -1,4 +1,5 @@
 using System.Net.Mime;
+using Item;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -17,7 +18,7 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     
     public SpriteHandler spriteHandler;
 
-    public void Awake()
+    private void Awake()
     {
         UpdateVisuals();
     }
@@ -46,31 +47,17 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     
     public bool HandleCombination(DraggableItem otherItem)
     {
-        // Check if items are the same type and tier
+        //TODO: Precisamos tratar usando IsEqualTier e IsEqualType no futuro
         if (!itemID.IsEqual(otherItem.itemID)) 
             return false;
 
-        // Check if next tier exists in SpriteHandler
-        if (!CanUpgradeToTier(itemID.tier + 1))
-        {
-            Debug.Log($"Max tier reached for {itemID.type} (Current: {itemID.tier})");
-            return false;
-        }
-
-        // Proceed with combination
-        return CombineItems(otherItem);
+        if (spriteHandler.TierExists(itemID.type, itemID.tier + 1)) 
+            return CombineItems(otherItem);
+        
+        Debug.Log($"Nao encontrou proximo. --- Type: {itemID.type} Tier: {itemID.tier} ---");
+        return false;
     }
     
-    private bool CanUpgradeToTier(int targetTier)
-    {
-        if (spriteHandler == null)
-        {
-            Debug.LogWarning("SpriteHandler not assigned!");
-            return false;
-        }
-
-        return spriteHandler.TierExists(itemID.type, targetTier);
-    }
     
     private bool CombineItems(DraggableItem otherItem)
     {
@@ -78,8 +65,6 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         UpdateVisuals();
         
         Destroy(otherItem.gameObject);
-        
-        Debug.Log($"New item level: {itemID.GetCompositeID()}");
 
         return true;
     }
