@@ -16,6 +16,12 @@ namespace Item
     {
         public ItemType type;
         public int tier;
+
+        public ItemID(ItemType type, int tier) 
+        {
+            this.type = type;
+            this.tier = tier;
+        }
     
         public string GetID() => $"{(int)type}_{tier}";
 
