@@ -4,6 +4,9 @@ using Unity.VisualScripting;
 
 public class Cliente : MonoBehaviour
 {
+    public GameObject prefabPedido;
+    public Transform listaPedido;
+    private GameObject pedidoUI;
     private ItemID pedidoID;
     private bool fezPedido;
     void Start()
@@ -14,7 +17,12 @@ public class Cliente : MonoBehaviour
 
     public void OnMouseUpAsButton()
     {
-        // if(!fezPedido) CriarPedido(pedidoID);
-        gameObject.GetComponent<SpriteRenderer>().flipX = !gameObject.GetComponent<SpriteRenderer>().flipX;
+        if(!fezPedido) 
+        {
+            gameObject.GetComponent<SpriteRenderer>().flipX = !gameObject.GetComponent<SpriteRenderer>().flipX;
+            pedidoUI = Instantiate(prefabPedido, listaPedido);
+            //pedidoUI.GetComponentInChildren<Image>()
+        }
+        
     }
 }
