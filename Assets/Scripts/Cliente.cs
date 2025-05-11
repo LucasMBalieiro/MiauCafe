@@ -1,6 +1,7 @@
 using UnityEngine;
 using Item;
-using Unity.VisualScripting;
+using UnityEngine.UI;
+using SpriteHandler;
 
 public class Cliente : MonoBehaviour
 {
@@ -21,7 +22,7 @@ public class Cliente : MonoBehaviour
         {
             gameObject.GetComponent<SpriteRenderer>().flipX = !gameObject.GetComponent<SpriteRenderer>().flipX;
             pedidoUI = Instantiate(prefabPedido, listaPedido);
-            //pedidoUI.GetComponentInChildren<Image>()
+            // pedidoUI.GetComponentInChildren<Image>().sprite = SpriteHandler.GetSpriteForItem(pedidoID);
         }
         
     }

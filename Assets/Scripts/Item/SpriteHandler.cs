@@ -18,8 +18,8 @@ public class SpriteHandler : ScriptableObject
         return (from item in itemSprites where item.type == type select targetTier >= 0 && targetTier < item.tierSprites.Length).FirstOrDefault();
     }
     
-    public Sprite GetSpriteForItem(ItemType type, int tier)
+    public Sprite GetSpriteForItem(ItemID itemID)
     {
-        return (from item in itemSprites where item.type == type select item.tierSprites[tier]).FirstOrDefault();
+        return (from item in itemSprites where item.type == itemID.type select item.tierSprites[itemID.tier]).FirstOrDefault();
     }
 }
