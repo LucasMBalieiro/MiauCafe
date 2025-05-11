@@ -1,6 +1,4 @@
-using System.Net.Mime;
 using Item;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -73,7 +71,7 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     {
         if (spriteHandler != null)
         {
-            image.sprite = spriteHandler.GetSpriteForItem(itemID.type, itemID.tier);
+            image.sprite = spriteHandler.GetSpriteForItem(itemID);
         }
     }
     

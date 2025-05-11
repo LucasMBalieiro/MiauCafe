@@ -1,7 +1,6 @@
 using UnityEngine;
 using Item;
 using UnityEngine.UI;
-using SpriteHandler;
 
 public class Cliente : MonoBehaviour
 {
