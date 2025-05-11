@@ -3082,8 +3082,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5515dc9d1fd6c344a61e94ab74d9d96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spriteHandler: {fileID: 11400000, guid: 62209d71de9c66d45afad7b0530e2884, type: 2}
   prefabPedido: {fileID: 2779963354455375621, guid: a2c2b67af240ea743a84fcf062435205, type: 3}
   listaPedido: {fileID: 1329784386}
+  pedidoID:
+    type: 0
+    tier: 0
 --- !u!61 &1234066649
 BoxCollider2D:
   m_ObjectHideFlags: 0

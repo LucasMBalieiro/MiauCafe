@@ -7,11 +7,11 @@ public class Cliente : MonoBehaviour
     public GameObject prefabPedido;
     public Transform listaPedido;
     private GameObject pedidoUI;
-    private ItemID pedidoID;
+    public ItemID pedidoID;
     private bool fezPedido;
     void Start()
     {
-        pedidoID = new ItemID(0, 1);
+        pedidoID = new ItemID(ItemType.Numero, 1);
         fezPedido = false;
     }
 
@@ -21,7 +21,7 @@ public class Cliente : MonoBehaviour
         {
             gameObject.GetComponent<SpriteRenderer>().flipX = !gameObject.GetComponent<SpriteRenderer>().flipX;
             pedidoUI = Instantiate(prefabPedido, listaPedido);
-            // pedidoUI.GetComponentInChildren<Image>().sprite = SpriteHandler.GetSpriteForItem(pedidoID);
+            pedidoUI.GetComponent<Pedido>().SetPedido(pedidoID);
         }
         
     }
