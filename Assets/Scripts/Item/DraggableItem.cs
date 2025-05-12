@@ -2,21 +2,21 @@ using Item;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using Managers;
 
 public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
     
-    [Header("Identificador")]
     public ItemID itemID;
     
     [Header("Sprite")]
-    public Image image;
+    [SerializeField] private Image itemImage;
+    
     [HideInInspector] public Transform parentAfterDrag;
     [HideInInspector] public Transform previousParent;
     
-    public SpriteHandler spriteHandler;
 
-    private void Awake()
+    private void Start()
     {
         UpdateVisuals();
     }
@@ -28,8 +28,7 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         
         transform.SetParent(transform.root);
         transform.SetAsLastSibling();
-        
-        image.raycastTarget = false;
+        itemImage.raycastTarget = false;
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -40,7 +39,7 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     public void OnEndDrag(PointerEventData eventData)
     {
         transform.SetParent(parentAfterDrag);
-        image.raycastTarget = true;
+        itemImage.raycastTarget = true;
     }
     
     public bool HandleCombination(DraggableItem otherItem)
@@ -49,11 +48,8 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         if (!itemID.IsEqual(otherItem.itemID)) 
             return false;
 
-        if (spriteHandler.TierExists(itemID.type, itemID.tier + 1)) 
-            return CombineItems(otherItem);
+        return SpriteManager.Instance.TierExists(itemID) && CombineItems(otherItem);
         
-        Debug.Log($"Nao encontrou proximo. --- Type: {itemID.type} Tier: {itemID.tier} ---");
-        return false;
     }
     
     
@@ -69,10 +65,7 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
     private void UpdateVisuals()
     {
-        if (spriteHandler != null)
-        {
-            image.sprite = spriteHandler.GetSpriteForItem(itemID);
-        }
+        itemImage.sprite = SpriteManager.Instance.GetSpriteForItem(itemID);
     }
     
     public void ReturnToPreviousPosition()
