@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5955778284434904096}
   - component: {fileID: 4526908851747656810}
   m_Layer: 5
-  m_Name: Numero
+  m_Name: Ingrediente
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -66,7 +66,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -6164970089383821555, guid: caa0788edaf86054b9f9333f8b7c09ef, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -91,7 +91,6 @@ MonoBehaviour:
   itemID:
     type: 9
     tier: 0
-  image: {fileID: 5955778284434904096}
+  itemImage: {fileID: 5955778284434904096}
   parentAfterDrag: {fileID: 0}
   previousParent: {fileID: 0}
-  spriteHandler: {fileID: 11400000, guid: 62209d71de9c66d45afad7b0530e2884, type: 2}
