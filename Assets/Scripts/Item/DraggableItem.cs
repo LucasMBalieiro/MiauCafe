@@ -15,7 +15,6 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     [HideInInspector] public Transform parentAfterDrag;
     [HideInInspector] public Transform previousParent;
     
-
     private void Start()
     {
         UpdateVisuals();
