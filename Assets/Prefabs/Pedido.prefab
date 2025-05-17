@@ -89,8 +89,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40bdab7e65b39854cb22f0957accaf70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spriteHandler: {fileID: 11400000, guid: 62209d71de9c66d45afad7b0530e2884, type: 2}
   pedidoImagem: {fileID: 6247781925460356105}
+  newOrderSound: {fileID: 8300000, guid: 4b51814a912a070478d81eb04c30b5ba, type: 3}
+  orderSoundVolume: 0.2
 --- !u!1 &7424463354102987720
 GameObject:
   m_ObjectHideFlags: 0

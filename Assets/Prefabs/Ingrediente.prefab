@@ -94,3 +94,4 @@ MonoBehaviour:
   itemImage: {fileID: 5955778284434904096}
   parentAfterDrag: {fileID: 0}
   previousParent: {fileID: 0}
+  mergeSound: {fileID: 8300000, guid: b62b183d415827b4fa2091d9acb7dcc6, type: 3}

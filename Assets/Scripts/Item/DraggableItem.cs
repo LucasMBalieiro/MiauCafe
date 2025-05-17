@@ -15,10 +15,22 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     [HideInInspector] public Transform parentAfterDrag;
     [HideInInspector] public Transform previousParent;
     
-
+    //Som do merge
+    [Header("mergeAudio")]
+    [SerializeField] private AudioClip mergeSound;
+    private AudioSource audioSource;
     private void Start()
     {
         UpdateVisuals();
+        // Configura o AudioSource
+        audioSource = GetComponent<AudioSource>();
+        if (audioSource == null)
+        {
+            audioSource = gameObject.AddComponent<AudioSource>();
+            audioSource.playOnAwake = false;
+            audioSource.spatialBlend = 0; // 2D
+        }
+
     }
 
     public void OnBeginDrag(PointerEventData eventData)
@@ -57,6 +69,13 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     {
         itemID.tier++;
         UpdateVisuals();
+        // Toca o som de merge:
+        if(mergeSound != null) {
+            //caso seja interessante, variar um pouco o mesmo som:
+            audioSource.pitch = Random.Range(0.9f, 1.1f); // Variação de 10%
+            audioSource.PlayOneShot(mergeSound);
+
+        }
         
         Destroy(otherItem.gameObject);
 
