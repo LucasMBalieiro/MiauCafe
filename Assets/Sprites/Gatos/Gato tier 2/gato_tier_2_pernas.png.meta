@@ -1,10 +1,13 @@
 fileFormatVersion: 2
-guid: ca37851101bfc0a4db7bde6329c359db
+guid: a3c006b6583e21c4db02c0112d65a760
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8015816852313934108
-    second: GatoContente_0
+      213: 3165304693686854836
+    second: gato_tier_2_pernas_0
+  - first:
+      213: -8998474847100897472
+    second: gato_tier_2_pernas_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +103,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: GatoContente_0
+      name: gato_tier_2_pernas_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 25
         y: 0
-        width: 1000
-        height: 1000
+        width: 27
+        height: 33
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +118,30 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c1903c225f6ed3f60800000000000000
-      internalID: 8015816852313934108
+      spriteID: 4b4e41139db6deb20800000000000000
+      internalID: 3165304693686854836
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gato_tier_2_pernas_1
+      rect:
+        serializedVersion: 2
+        x: 58
+        y: 0
+        width: 27
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 04773427dcefe1380800000000000000
+      internalID: -8998474847100897472
       vertices: []
       indices: 
       edges: []
@@ -134,8 +159,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      GatoContente_0: 8015816852313934108
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

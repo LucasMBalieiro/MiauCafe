@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: ca37851101bfc0a4db7bde6329c359db
+guid: 55240004cbc0f3c46b62028f8cd77556
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8015816852313934108
-    second: GatoContente_0
+      213: 5371983712629887642
+    second: gato_tier_2_tronco_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: GatoContente_0
+      name: gato_tier_2_tronco_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 1000
-        height: 1000
+        x: 9
+        y: 25
+        width: 121
+        height: 61
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c1903c225f6ed3f60800000000000000
-      internalID: 8015816852313934108
+      spriteID: a921d7289be1d8a40800000000000000
+      internalID: 5371983712629887642
       vertices: []
       indices: 
       edges: []
@@ -134,8 +134,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      GatoContente_0: 8015816852313934108
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: ca37851101bfc0a4db7bde6329c359db
+guid: f9a6f118b5147da4292dccb06ca9edab
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8015816852313934108
-    second: GatoContente_0
+      213: 9189767172963111778
+    second: gato_tier_2_cabeca_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: GatoContente_0
+      name: gato_tier_2_cabeca_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
-        width: 1000
-        height: 1000
+        y: 82
+        width: 116
+        height: 103
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c1903c225f6ed3f60800000000000000
-      internalID: 8015816852313934108
+      spriteID: 2631309ed8c988f70800000000000000
+      internalID: 9189767172963111778
       vertices: []
       indices: 
       edges: []
@@ -134,8 +134,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      GatoContente_0: 8015816852313934108
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
