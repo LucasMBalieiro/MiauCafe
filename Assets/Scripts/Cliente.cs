@@ -8,15 +8,15 @@ public class Cliente : MonoBehaviour
     public Transform listaPedido;
     private GameObject pedidoUI;
     public ItemID pedidoID;
-    private bool fezPedido;
-    
+    private bool sentado;
+
     //background music
     //[Header("Configuração de Áudio")]
     //[SerializeField] private AudioClip backgroundLoop;
-    
+
     //private AudioSource audioSource;
-    
-    
+
+
     void Start()
     {
         // Configura o AudioSource
@@ -26,16 +26,19 @@ public class Cliente : MonoBehaviour
         //audioSource.spatialBlend = 0; // Áudio 2D
         //audioSource.Play();
         //
-        
         pedidoID = new ItemID(ItemType.Numero, 1);
-        fezPedido = false;
-        
+        sentado = false;
+        Entrar();
+    }
+
+    void Entrar()
+    {
         
     }
 
-    public void OnMouseUpAsButton()
+    void Update()
     {
-        if(!fezPedido) 
+        if(sentado) 
         {
             gameObject.GetComponent<SpriteRenderer>().flipX = !gameObject.GetComponent<SpriteRenderer>().flipX;
             pedidoUI = Instantiate(prefabPedido, listaPedido);
