@@ -1,26 +1,36 @@
-using System.Net.Mime;
 using Item;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using Managers;
 
 public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
     
-    [Header("Identificador")]
     public ItemID itemID;
     
     [Header("Sprite")]
-    public Image image;
+    [SerializeField] private Image itemImage;
+    
     [HideInInspector] public Transform parentAfterDrag;
     [HideInInspector] public Transform previousParent;
     
-    public SpriteHandler spriteHandler;
-
-    private void Awake()
+    //Som do merge
+    [Header("mergeAudio")]
+    [SerializeField] private AudioClip mergeSound;
+    private AudioSource audioSource;
+    private void Start()
     {
         UpdateVisuals();
+        // Configura o AudioSource
+        audioSource = GetComponent<AudioSource>();
+        if (audioSource == null)
+        {
+            audioSource = gameObject.AddComponent<AudioSource>();
+            audioSource.playOnAwake = false;
+            audioSource.spatialBlend = 0; // 2D
+        }
+
     }
 
     public void OnBeginDrag(PointerEventData eventData)
@@ -30,8 +40,7 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         
         transform.SetParent(transform.root);
         transform.SetAsLastSibling();
-        
-        image.raycastTarget = false;
+        itemImage.raycastTarget = false;
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -42,7 +51,7 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     public void OnEndDrag(PointerEventData eventData)
     {
         transform.SetParent(parentAfterDrag);
-        image.raycastTarget = true;
+        itemImage.raycastTarget = true;
     }
     
     public bool HandleCombination(DraggableItem otherItem)
@@ -51,11 +60,8 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         if (!itemID.IsEqual(otherItem.itemID)) 
             return false;
 
-        if (spriteHandler.TierExists(itemID.type, itemID.tier + 1)) 
-            return CombineItems(otherItem);
+        return SpriteManager.Instance.TierExists(itemID) && CombineItems(otherItem);
         
-        Debug.Log($"Nao encontrou proximo. --- Type: {itemID.type} Tier: {itemID.tier} ---");
-        return false;
     }
     
     
@@ -63,6 +69,13 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     {
         itemID.tier++;
         UpdateVisuals();
+        // Toca o som de merge:
+        if(mergeSound != null) {
+            //caso seja interessante, variar um pouco o mesmo som:
+            audioSource.pitch = Random.Range(0.9f, 1.1f); // Variação de 10%
+            audioSource.PlayOneShot(mergeSound);
+
+        }
         
         Destroy(otherItem.gameObject);
 
@@ -71,10 +84,7 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
     private void UpdateVisuals()
     {
-        if (spriteHandler != null)
-        {
-            image.sprite = spriteHandler.GetSpriteForItem(itemID.type, itemID.tier);
-        }
+        itemImage.sprite = SpriteManager.Instance.GetSpriteForItem(itemID);
     }
     
     public void ReturnToPreviousPosition()
