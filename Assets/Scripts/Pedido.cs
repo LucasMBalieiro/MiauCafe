@@ -26,7 +26,7 @@ public class Pedido : MonoBehaviour
 
     public void SetPedido(ItemID pedidoID)
     {
-        pedidoImagem.sprite = SpriteManager.Instance.GetSpriteForItem(pedidoID);
+        pedidoImagem.sprite = SpriteDictionary.Instance.GetSpriteForItem(pedidoID);
         
         // Toca o som do novo pedido
         if (newOrderSound != null)

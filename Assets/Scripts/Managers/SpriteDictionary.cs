@@ -5,9 +5,9 @@ using UnityEngine;
 
 namespace Managers
 {
-    public class SpriteManager : MonoBehaviour
+    public class SpriteDictionary : MonoBehaviour
     {
-        public static SpriteManager Instance { get; private set; }
+        public static SpriteDictionary Instance { get; private set; }
     
         [System.Serializable]
         public class ItemSprite

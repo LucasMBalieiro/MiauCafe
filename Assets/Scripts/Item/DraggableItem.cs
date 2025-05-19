@@ -4,7 +4,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using Managers;
 
-public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
+public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler, IPointerClickHandler
 {
     
     public ItemID itemID;
@@ -33,6 +33,11 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
     }
 
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        Debug.Log("OnPointerClick");
+    }
+    
     public void OnBeginDrag(PointerEventData eventData)
     {
         parentAfterDrag = transform.parent;
@@ -60,7 +65,7 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         if (!itemID.IsEqual(otherItem.itemID)) 
             return false;
 
-        return SpriteManager.Instance.TierExists(itemID) && CombineItems(otherItem);
+        return SpriteDictionary.Instance.TierExists(itemID) && CombineItems(otherItem);
         
     }
     
@@ -84,7 +89,7 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
     private void UpdateVisuals()
     {
-        itemImage.sprite = SpriteManager.Instance.GetSpriteForItem(itemID);
+        itemImage.sprite = SpriteDictionary.Instance.GetSpriteForItem(itemID);
     }
     
     public void ReturnToPreviousPosition()
@@ -93,4 +98,6 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         parentAfterDrag = previousParent;
         transform.localPosition = Vector3.zero;
     }
+
+
 }
