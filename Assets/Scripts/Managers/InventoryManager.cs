@@ -1,5 +1,6 @@
 using System;
 using Item;
+using Managers;
 using UnityEditor.Tilemaps;
 using UnityEngine;
 
@@ -41,13 +42,12 @@ public class InventoryManager : MonoBehaviour
     private void SpawnItem(ItemID itemID, GridSlot gridSlot)
     {
         int id = (int) itemID.type - 10;
+        int randomTier = DropRates.Instance.CalculateTierDrop(itemID.tier);
         
         GameObject spawnedItem = Instantiate(ingredientePrefab, gridSlot.transform);
         DraggableItem draggableItem = spawnedItem.GetComponent<DraggableItem>();
         
-        draggableItem.Initialize(new ItemID((ItemType)id, itemID.tier));
-        
-        Debug.Log("Spawnando item do tier: " + id);
+        draggableItem.Initialize(new ItemID((ItemType)id, randomTier));
     }
 
     private void RefreshSlots()

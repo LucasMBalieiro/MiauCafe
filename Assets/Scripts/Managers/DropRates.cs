@@ -12,10 +12,10 @@ namespace Managers
         public class DropRate
         {
             public int tier;
-            public int[] rate;
+            public float[] rate;
         }
         
-        [SerializeField] private DropRate[] dropRate;
+        [SerializeField] private DropRate[] dropRates;
 
         private void Awake()
         {
@@ -28,11 +28,36 @@ namespace Managers
             DontDestroyOnLoad(gameObject);
         }
 
-        private void CalculateChance()
+        public int CalculateTierDrop(int tierSpawner)
         {
-            
+            foreach (var dropRate in dropRates)
+            {
+                if (dropRate.tier == tierSpawner)
+                {
+                    return CalculateRandom(dropRate.rate);
+                }
+            }
+            return tierSpawner;
         }
-        
+
+        private int CalculateRandom(float[] rates)
+        {
+            float random = UnityEngine.Random.Range(0, rates.Sum());
+
+            float chance = 0f;
+            for (var i = 0; i < rates.Length; i++)
+            {
+                chance += rates[i];
+
+                if (!(chance >= random)) continue;
+                
+                Debug.Log("Drop rate: " + rates[i] + " de " + rates.Sum());
+                return i;
+            }
+            Debug.Log("deu ruim");
+
+            return 0;
+        }
     
     
     }
