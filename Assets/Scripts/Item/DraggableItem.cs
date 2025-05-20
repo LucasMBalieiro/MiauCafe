@@ -33,9 +33,21 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
     }
 
+    public void Initialize(ItemID newItemID)
+    {
+        itemID = newItemID;
+    }
+    
     public void OnPointerClick(PointerEventData eventData)
     {
-        Debug.Log("OnPointerClick");
+        if (itemID.IsMachine())
+        {
+            InventoryManager.Instance.AddItem(itemID);
+        }
+        else
+        {
+            Debug.Log("não é: " + itemID.type);
+        }
     }
     
     public void OnBeginDrag(PointerEventData eventData)

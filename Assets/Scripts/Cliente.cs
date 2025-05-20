@@ -26,7 +26,7 @@ public class Cliente : MonoBehaviour
         //audioSource.spatialBlend = 0; // Áudio 2D
         //audioSource.Play();
         //
-        pedidoID = new ItemID(ItemType.Numero, 1);
+        pedidoID = new ItemID(ItemType.Cafe, 1);
         sentado = false;
         Entrar();
     }

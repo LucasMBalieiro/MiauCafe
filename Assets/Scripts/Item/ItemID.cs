@@ -8,7 +8,11 @@ namespace Item
         [InspectorName("Sorvete")] Sorvete = 1,
         [InspectorName("Bolo")] Bolo = 2,
         [InspectorName("Pao")] Pao = 3,
-        [InspectorName("Numero")] Numero = 9,
+        
+        [InspectorName("Maq.Cafe")] MaqCafe = 10,
+        [InspectorName("Maq.Sorvete")] MaqSorvete = 11,
+        [InspectorName("Maq.Bolo")] MaqBolo = 12,
+        [InspectorName("Maq.Pao")] MaqPao = 13,
 
     }
 
@@ -22,8 +26,6 @@ namespace Item
             this.type = type;
             this.tier = tier;
         }
-    
-        public string GetID() => $"{(int)type}_{tier}";
 
         public bool IsEqual(ItemID other)
         {
@@ -39,7 +41,10 @@ namespace Item
         {
             return tier == other.tier;
         }
-    
-    
+
+        public bool IsMachine()
+        {
+            return type is ItemType.MaqCafe or ItemType.MaqSorvete or ItemType.MaqBolo or ItemType.MaqPao;
+        }
     }
 }

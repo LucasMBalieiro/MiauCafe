@@ -28,7 +28,7 @@ namespace Managers
                 return;
             }
             Instance = this;
-            //DontDestroyOnLoad(gameObject); porque caralhos ele nao funciona se isso estiver ligado??
+            DontDestroyOnLoad(gameObject);
         
             _spriteLookup = itemSprites.ToDictionary(
                 item => item.type, 
