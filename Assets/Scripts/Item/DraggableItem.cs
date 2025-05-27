@@ -40,13 +40,13 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     
     public void OnPointerClick(PointerEventData eventData)
     {
-        if (itemID.IsMachine())
+        if (itemID.IsMachine() && CoinController.Instance.BuyItem(itemID))
         {
             InventoryManager.Instance.AddItem(itemID);
         }
         else
         {
-            Debug.Log("não é: " + itemID.type);
+            Debug.Log("Sem dinheiro || não é maquina");
         }
     }
     

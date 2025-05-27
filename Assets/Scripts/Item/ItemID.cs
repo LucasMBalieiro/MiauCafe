@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace Item
@@ -9,6 +10,7 @@ namespace Item
         [InspectorName("Bolo")] Bolo = 2,
         [InspectorName("Pao")] Pao = 3,
         
+        //those should be separate 
         [InspectorName("Maq.Cafe")] MaqCafe = 10,
         [InspectorName("Maq.Sorvete")] MaqSorvete = 11,
         [InspectorName("Maq.Bolo")] MaqBolo = 12,
@@ -20,11 +22,17 @@ namespace Item
     {
         public ItemType type;
         public int tier;
+        
+        //the only the machines should have these
+        public bool hasPrice;
+        public int[] tierPrices;
 
-        public ItemID(ItemType type, int tier) 
+        public ItemID(ItemType type, int tier, bool hasPrice = false, int[] tierPrices = null) 
         {
             this.type = type;
             this.tier = tier;
+            this.hasPrice = hasPrice;
+            this.tierPrices = tierPrices ?? Array.Empty<int>();
         }
 
         public bool IsEqual(ItemID other)

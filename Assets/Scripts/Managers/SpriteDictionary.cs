@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Item;
+using UnityEditor;
 using UnityEngine;
 
 namespace Managers
@@ -14,6 +15,9 @@ namespace Managers
         {
             public ItemType type;
             public Sprite[] tierSprites; 
+
+            public bool hasPrice;
+            public int[] tierPrices;
         }
 
         [Header("Dicionario dos Sprites")]
