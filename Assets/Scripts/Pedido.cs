@@ -2,10 +2,12 @@ using UnityEngine;
 using Item;
 using Managers;
 using UnityEngine.UI;
+using TMPro;
 
 public class Pedido : MonoBehaviour
 {
     public Image pedidoImagem;
+    public TextMeshProUGUI quantidadeTxt;
     //Som de pedido
     [Header("Configuração de Áudio")]
     [SerializeField] private AudioClip newOrderSound;
@@ -24,14 +26,15 @@ public class Pedido : MonoBehaviour
     }
     
 
-    public void SetPedido(ItemID pedidoID)
+    public void SetPedido(ItemID pedidoID, int quantidade)
     {
         pedidoImagem.sprite = SpriteDictionary.Instance.GetSpriteForItem(pedidoID);
+        quantidadeTxt.text = quantidade.ToString();
         
         // Toca o som do novo pedido
         if (newOrderSound != null)
         {
-            audioSource.PlayOneShot(newOrderSound,orderSoundVolume);
+            audioSource.PlayOneShot(newOrderSound, orderSoundVolume);
         }
     }
 }
