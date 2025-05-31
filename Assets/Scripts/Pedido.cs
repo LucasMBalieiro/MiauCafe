@@ -1,6 +1,6 @@
 using UnityEngine;
 using Managers;
-using OldItem;
+using Scriptables.Item;
 using UnityEngine.UI;
 using TMPro;
 
@@ -26,9 +26,9 @@ public class Pedido : MonoBehaviour
     }
     
 
-    public void SetPedido(ItemID pedidoID, int quantidade)
+    public void SetPedido(BaseItemScriptableObject pedidoID, int quantidade)
     {
-        pedidoImagem.sprite = SpriteDictionary.Instance.GetSpriteForItem(pedidoID);
+        pedidoImagem.sprite = pedidoID.sprite;
         quantidadeTxt.text = quantidade.ToString();
         
         // Toca o som do novo pedido

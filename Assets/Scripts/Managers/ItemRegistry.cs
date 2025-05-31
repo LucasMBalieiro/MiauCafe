@@ -115,6 +115,7 @@ namespace Managers
             return GetItem(ItemCategory.Machine, (int)type, tier) as MachineScriptableObject;
         }
         
+        
         public BaseItemScriptableObject GetCombinationResult(BaseItemScriptableObject item1, BaseItemScriptableObject item2)
         {
             //Insanidades do Gemini, mas acho que vai ser útil no futuro

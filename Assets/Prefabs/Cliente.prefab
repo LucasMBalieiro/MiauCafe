@@ -148,6 +148,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefabPedido: {fileID: 2779963354455375621, guid: a2c2b67af240ea743a84fcf062435205, type: 3}
+  ingredientPrefab: {fileID: 2735468588263113700, guid: 869e724e28c2efa47a8a2e5bb9d85ba6, type: 3}
   bandeija: {fileID: 0}
-  pedidoID: []
+  ingredients: []
   quantidades: 
