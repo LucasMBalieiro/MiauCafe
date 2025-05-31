@@ -1,4 +1,4 @@
-using Item;
+using OldItem;
 using TMPro;
 using UnityEngine;
 
@@ -33,9 +33,8 @@ public class CoinController : MonoBehaviour
         return coins;
     }
 
-    public bool BuyItem(ItemID itemID)
+    public bool BuyItem(int price)
     {
-        var price = itemID.tierPrices[itemID.tier];
         if (coins < price) return false;
         
         Debug.Log($"Preço: {price}");

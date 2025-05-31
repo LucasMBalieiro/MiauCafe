@@ -1,8 +1,7 @@
 using System.Linq;
-using Item;
 using UnityEngine;
 
-namespace Managers
+namespace OldItem
 {
     public class DropRates : MonoBehaviour
     {

@@ -1,6 +1,6 @@
 using UnityEngine;
-using Item;
 using Managers;
+using OldItem;
 using UnityEngine.UI;
 
 public class Pedido : MonoBehaviour

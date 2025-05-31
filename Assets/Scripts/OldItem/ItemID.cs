@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace Item
+namespace OldItem
 {
     [System.Serializable] public enum ItemType
     {

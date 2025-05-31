@@ -1,6 +1,7 @@
 using System;
-using Item;
 using Managers;
+using OldItem;
+using Scriptables.Item;
 using UnityEditor.Tilemaps;
 using UnityEngine;
 
@@ -8,8 +9,8 @@ public class InventoryManager : MonoBehaviour
 {
     
     [Header("Referencia do objeto pai do grid")]
-    [SerializeField] private Transform inventory;
-    [SerializeField] private GameObject ingredientePrefab;
+    [SerializeField] private Transform inventoryGridParent; 
+    [SerializeField] private GameObject draggableItemPrefab;
     private GridSlot[] gridSlots;
 
     public static InventoryManager Instance { get; private set; }
@@ -27,31 +28,45 @@ public class InventoryManager : MonoBehaviour
         RefreshSlots();
     }
 
-    public void AddItem(ItemID itemID)
+    public void AddItem(BaseItemScriptableObject itemDataToAdd)
     {
-        foreach (var gridSlot in gridSlots)
+        if (itemDataToAdd == null)
         {
-            if (gridSlot.transform.childCount != 0) continue;
-            SpawnItem(itemID, gridSlot);
+            Debug.LogError("Attempted to add a null item to inventory!");
             return;
         }
-        //TODO: colocar um sonzinho se o grid acabou?
-        Debug.Log("Acabou os slots");
+
+        foreach (var gridSlot in gridSlots)
+        {
+            if (gridSlot.transform.childCount == 0) // Find an empty slot
+            {
+                SpawnItem(itemDataToAdd, gridSlot);
+                return; // Item added, exit
+            }
+        }
+        Debug.Log("Inventory full! No available slots to add item.");
     }
 
-    private void SpawnItem(ItemID itemID, GridSlot gridSlot)
+    private void SpawnItem(BaseItemScriptableObject itemData, GridSlot gridSlot)
     {
-        int id = (int) itemID.type - 10;
-        int randomTier = DropRates.Instance.CalculateTierDrop(itemID.tier);
+        // 1. Instantiate the prefab (which has the DraggableItem component)
+        GameObject spawnedItemGO = Instantiate(draggableItemPrefab, gridSlot.transform);
         
-        GameObject spawnedItem = Instantiate(ingredientePrefab, gridSlot.transform);
-        DraggableItem draggableItem = spawnedItem.GetComponent<DraggableItem>();
+        // 2. Get the DraggableItem component from the spawned GameObject
+        DraggableItem draggableItem = spawnedItemGO.GetComponent<DraggableItem>();
         
-        draggableItem.Initialize(new ItemID((ItemType)id, randomTier));
+        if (draggableItem == null)
+        {
+            Debug.LogError("DraggableItem prefab is missing DraggableItem component!");
+            Destroy(spawnedItemGO);
+            return;
+        }
+        
+        draggableItem.Initialize(itemData);
     }
 
     private void RefreshSlots()
     {
-        gridSlots = inventory.GetComponentsInChildren<GridSlot>();
+        gridSlots = inventoryGridParent.GetComponentsInChildren<GridSlot>();
     }
 }

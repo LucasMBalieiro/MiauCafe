@@ -1,5 +1,5 @@
+using OldItem;
 using UnityEngine;
-using Item;
 using UnityEngine.UI;
 
 public class Cliente : MonoBehaviour
