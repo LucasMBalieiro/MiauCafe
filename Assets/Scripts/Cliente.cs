@@ -1,14 +1,16 @@
-using OldItem;
 using UnityEngine;
-using UnityEngine.UI;
+using Item;
+using System.Collections.Generic;
 
 public class Cliente : MonoBehaviour
 {
     public GameObject prefabPedido;
-    public Transform listaPedido;
-    private GameObject pedidoUI;
-    public ItemID pedidoID;
-    private bool sentado;
+    private List<GameObject> pedidoUI = new List<GameObject>();
+
+    // O CatManager deverá settar a referência e os atributos abaixo
+    public Transform bandeija;
+    public List<ItemID> pedidoID;
+    public List<int> quantidades;
 
     //background music
     //[Header("Configuração de Áudio")]
@@ -26,24 +28,22 @@ public class Cliente : MonoBehaviour
         //audioSource.spatialBlend = 0; // Áudio 2D
         //audioSource.Play();
         //
-        pedidoID = new ItemID(ItemType.Cafe, 1);
-        sentado = false;
-        Entrar();
-    }
-
-    void Entrar()
-    {
+        pedidoID.Add(new ItemID(ItemType.Cafe, 1));
+        pedidoID.Add(new ItemID(ItemType.Cafe, 2));
+        quantidades.Add(2);
+        quantidades.Add(1);
         
+        for (int i = 0; i < pedidoID.Count; i++)
+        {
+            if (prefabPedido == null) { Debug.Log("n existe prefab de slot de pedido"); }
+            if (bandeija == null) { Debug.Log("n existe bandeija"); }
+            pedidoUI.Add(Instantiate(prefabPedido, bandeija));
+            pedidoUI[i].GetComponent<Pedido>().SetPedido(pedidoID[i], quantidades[i]);
+        }
     }
 
     void Update()
     {
-        if(sentado) 
-        {
-            gameObject.GetComponent<SpriteRenderer>().flipX = !gameObject.GetComponent<SpriteRenderer>().flipX;
-            pedidoUI = Instantiate(prefabPedido, listaPedido);
-            pedidoUI.GetComponent<Pedido>().SetPedido(pedidoID);
-        }
         
     }
     

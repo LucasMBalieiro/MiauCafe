@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      maqbranca1_0: 5599795340473008128
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
