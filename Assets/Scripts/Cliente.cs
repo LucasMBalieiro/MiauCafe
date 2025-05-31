@@ -1,6 +1,7 @@
 using UnityEngine;
 using Item;
 using System.Collections.Generic;
+using Scriptables.Item;
 
 public class Cliente : MonoBehaviour
 {
@@ -9,7 +10,7 @@ public class Cliente : MonoBehaviour
 
     // O CatManager deverá settar a referência e os atributos abaixo
     public Transform bandeija;
-    public List<ItemID> pedidoID;
+    public List<IngredientScriptableObject> ingredients;
     public List<int> quantidades;
 
     //background music
@@ -21,16 +22,10 @@ public class Cliente : MonoBehaviour
 
     void Start()
     {
-        // Configura o AudioSource
-        //audioSource = gameObject.AddComponent<AudioSource>();
-        //audioSource.clip = backgroundLoop;
-        //audioSource.loop = true;
-        //audioSource.spatialBlend = 0; // Áudio 2D
-        //audioSource.Play();
-        //
+
         pedidoID.Add(new ItemID(ItemType.Cafe, 1));
-        pedidoID.Add(new ItemID(ItemType.Cafe, 2));
         quantidades.Add(2);
+        pedidoID.Add(new ItemID(ItemType.Cafe, 2));
         quantidades.Add(1);
         
         for (int i = 0; i < pedidoID.Count; i++)
