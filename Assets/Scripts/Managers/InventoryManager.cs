@@ -65,7 +65,7 @@ public class InventoryManager : MonoBehaviour
         draggableItem.Initialize(itemData);
     }
 
-    private void RefreshSlots()
+    public void RefreshSlots()
     {
         gridSlots = inventoryGridParent.GetComponentsInChildren<GridSlot>();
     }
