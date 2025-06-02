@@ -1,6 +1,5 @@
 using System;
 using Managers;
-using OldItem;
 using Scriptables.Item;
 using UnityEditor.Tilemaps;
 using UnityEngine;

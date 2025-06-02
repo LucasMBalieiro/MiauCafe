@@ -1,8 +1,8 @@
+using Item;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using Managers;
-using OldItem;
 using Scriptables.Item;
 
 public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler, IPointerClickHandler

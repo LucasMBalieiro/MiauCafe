@@ -1,7 +1,7 @@
 using System.Linq;
 using UnityEngine;
 
-namespace OldItem
+namespace Item
 {
     public class DropRates : MonoBehaviour
     {
@@ -10,7 +10,6 @@ namespace OldItem
         [System.Serializable]
         public class DropRate
         {
-            public int tier;
             public float[] rate;
         }
         
@@ -29,14 +28,7 @@ namespace OldItem
 
         public int CalculateTierDrop(int tierSpawner)
         {
-            foreach (var dropRate in dropRates)
-            {
-                if (dropRate.tier == tierSpawner)
-                {
-                    return CalculateRandom(dropRate.rate);
-                }
-            }
-            return tierSpawner;
+            return CalculateRandom(dropRates[tierSpawner].rate);
         }
 
         private int CalculateRandom(float[] rates)

@@ -1,4 +1,3 @@
-using OldItem;
 using TMPro;
 using UnityEngine;
 
