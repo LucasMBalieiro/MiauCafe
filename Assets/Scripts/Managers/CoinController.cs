@@ -32,20 +32,21 @@ public class CoinController : MonoBehaviour
         return coins;
     }
 
-    public bool BuyItem(int price)
+    public bool CanBuyItem(int price)
     {
-        if (coins < price) return false;
-        
-        Debug.Log($"Preço: {price}");
-        coins -= price;
-        UpdateCounter();
-        return true;
+        return coins >= price;
     }
 
-    //talvez tenha que trocar pra algum tipo de clientID
+
     public void AddCoins(int amount)
     {
         coins += amount;
+        UpdateCounter();
+    }
+
+    public void RemoveCoins(int amount)
+    {
+        coins -= amount;
         UpdateCounter();
     }
 }

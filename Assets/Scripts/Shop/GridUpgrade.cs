@@ -33,8 +33,9 @@ public class GridUpgrade : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        if (upgradeTier < upgradePath.Length && CoinController.Instance.BuyItem(upgradePath[upgradeTier].price))
+        if (upgradeTier < upgradePath.Length && CoinController.Instance.CanBuyItem(upgradePath[upgradeTier].price))
         {
+            CoinController.Instance.RemoveCoins(upgradePath[upgradeTier].price);
             UpdateInventory(upgradePath[upgradeTier]);
         }
     }

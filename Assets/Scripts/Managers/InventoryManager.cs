@@ -1,4 +1,6 @@
 using System;
+using System.Linq;
+using Item;
 using Managers;
 using Scriptables.Item;
 using UnityEditor.Tilemaps;
@@ -26,38 +28,41 @@ public class InventoryManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
         RefreshSlots();
     }
+    
+    public bool HasEmptySlot()
+    {
+        return gridSlots.Any(gridSlot => gridSlot.transform.childCount == 0);
+    }
 
     public void AddItem(BaseItemScriptableObject itemDataToAdd)
     {
-        if (itemDataToAdd == null)
+        if (!HasEmptySlot())
         {
-            Debug.LogError("Attempted to add a null item to inventory!");
+            Debug.Log("Inventory full");
             return;
         }
-
+        
         foreach (var gridSlot in gridSlots)
         {
-            if (gridSlot.transform.childCount == 0) // Find an empty slot
+            if (gridSlot.transform.childCount == 0)
             {
                 SpawnItem(itemDataToAdd, gridSlot);
-                return; // Item added, exit
+                return;
             }
         }
-        Debug.Log("Inventory full! No available slots to add item.");
     }
 
     private void SpawnItem(BaseItemScriptableObject itemData, GridSlot gridSlot)
     {
-        // 1. Instantiate the prefab (which has the DraggableItem component)
-        GameObject spawnedItemGO = Instantiate(draggableItemPrefab, gridSlot.transform);
+
+        GameObject spawnedItem = Instantiate(draggableItemPrefab, gridSlot.transform);
         
-        // 2. Get the DraggableItem component from the spawned GameObject
-        DraggableItem draggableItem = spawnedItemGO.GetComponent<DraggableItem>();
+        DraggableItem draggableItem = spawnedItem.GetComponent<DraggableItem>();
         
         if (draggableItem == null)
         {
-            Debug.LogError("DraggableItem prefab is missing DraggableItem component!");
-            Destroy(spawnedItemGO);
+            Debug.LogError("InventoryManager: DraggableItem script == null");
+            Destroy(spawnedItem);
             return;
         }
         

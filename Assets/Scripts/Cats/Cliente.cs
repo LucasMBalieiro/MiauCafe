@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using Item;
 using Managers; // Assuming ItemRegistry is in Managers namespace
 using Scriptables.Item; // For your new ScriptableObjects and enums
 
@@ -115,15 +116,15 @@ public class Cliente : MonoBehaviour
         Dictionary<BaseItemScriptableObject, int> deliveredCounts = new Dictionary<BaseItemScriptableObject, int>();
         foreach (var draggableItem in itemsInDeliverySlot)
         {
-            if (draggableItem.itemData != null)
+            if (draggableItem.ItemData != null)
             {
-                if (deliveredCounts.ContainsKey(draggableItem.itemData))
+                if (deliveredCounts.ContainsKey(draggableItem.ItemData))
                 {
-                    deliveredCounts[draggableItem.itemData]++;
+                    deliveredCounts[draggableItem.ItemData]++;
                 }
                 else
                 {
-                    deliveredCounts[draggableItem.itemData] = 1;
+                    deliveredCounts[draggableItem.ItemData] = 1;
                 }
             }
         }
