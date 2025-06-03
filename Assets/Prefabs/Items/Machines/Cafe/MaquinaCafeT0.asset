@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: MaquinaCafeT0
   m_EditorClassIdentifier: 
   tier: 0
-  sprite: {fileID: 5017630684804432819, guid: 086ee829de7d8f849bcd2e62dc08bdb1, type: 3}
+  sprite: {fileID: -8985254523928517380, guid: f687da9cf458d5747ba60439ef9c8804, type: 3}
   machineType: 0
   cost: 10
   cooldown: 0
