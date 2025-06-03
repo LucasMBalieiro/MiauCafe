@@ -8,7 +8,7 @@ namespace Scriptables.Item
         public MachineType machineType;
         public int cost;
         public float cooldown;
-        public int charges;
+        public int maxCharges;
         
         [Space]
         [Header("Ingrediente")]

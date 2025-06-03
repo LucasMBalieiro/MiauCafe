@@ -39,7 +39,6 @@ namespace Managers
         private void OnValidate()
         {
         #if UNITY_EDITOR
-            // Only re-initialize in editor to catch changes to the 'allItems' list
             InitializeLookup();
         #endif
         }
