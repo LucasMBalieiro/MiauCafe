@@ -1,13 +1,14 @@
 using Managers;
 using Scriptables.Item;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Item
 {
     public class MachineRuntimeData : MonoBehaviour
     {
         private MachineScriptableObject machine;
-        public float _lastChargeRechargeTime;
+        public float cooldownTimer; 
         
         public event System.Action<int, int> OnChargesChanged; // current, max
         public event System.Action<float> OnCooldownProgress; // 0.0 to 1.0
@@ -25,7 +26,7 @@ namespace Item
             }
             machine = machineSO;
             CurrentCharges = machine.maxCharges;
-            _lastChargeRechargeTime = Time.time;
+            cooldownTimer = Time.time; 
             OnChargesChanged?.Invoke(CurrentCharges, machine.maxCharges);
         }
 
@@ -39,26 +40,16 @@ namespace Item
         {
             if (CurrentCharges < machine.maxCharges)
             {
-                float timeSinceLastRecharge = Time.time - _lastChargeRechargeTime;
-                int chargesToAdd = 0;
-
-                while (timeSinceLastRecharge >= machine.cooldown && CurrentCharges < machine.maxCharges)
+                if (Time.time - cooldownTimer >= machine.cooldown)
                 {
-                    chargesToAdd++;
-                    timeSinceLastRecharge -= machine.cooldown;
-                    _lastChargeRechargeTime += machine.cooldown;
-                }
-
-                if (chargesToAdd > 0)
-                {
-                    CurrentCharges += chargesToAdd;
-                    CurrentCharges = Mathf.Min(CurrentCharges, machine.maxCharges);
+                    CurrentCharges++;
+                    cooldownTimer += machine.cooldown;
                     OnChargesChanged?.Invoke(CurrentCharges, machine.maxCharges);
                 }
             }
             else
             {
-                _lastChargeRechargeTime = Time.time; 
+                cooldownTimer = Time.time; 
             }
         }
 
@@ -66,7 +57,7 @@ namespace Item
         {
             if (CurrentCharges < machine.maxCharges)
             {
-                float progress = (Time.time - _lastChargeRechargeTime) / machine.cooldown;
+                float progress = (Time.time - cooldownTimer) / machine.cooldown;
                 OnCooldownProgress?.Invoke(Mathf.Clamp01(progress));
             }
             else
@@ -80,9 +71,13 @@ namespace Item
             if (CurrentCharges > 0)
             {
                 CurrentCharges--;
-                _lastChargeRechargeTime = Time.time;
-                OnChargesChanged?.Invoke(CurrentCharges, machine.maxCharges);
                 
+                if (CurrentCharges == machine.maxCharges - 1)
+                {
+                    cooldownTimer = Time.time;
+                }
+                
+                OnChargesChanged?.Invoke(CurrentCharges, machine.maxCharges);
 
                 BaseItemScriptableObject producedItem = ItemRegistry.Instance.GetIngredient(
                     machine.producesIngredientType, 

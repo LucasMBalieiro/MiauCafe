@@ -34,7 +34,7 @@ namespace Item
 
             UpdateChargeVisuals(_machineRuntimeData.CurrentCharges, _machineRuntimeData.MaxCharges);
 
-            float initialProgress = (_machineRuntimeData.CurrentCharges >= _machineRuntimeData.MaxCharges) ? 1f : (Time.time - _machineRuntimeData._lastChargeRechargeTime) / _machineRuntimeData.CooldownDuration;
+            float initialProgress = (_machineRuntimeData.CurrentCharges >= _machineRuntimeData.MaxCharges) ? 1f : (Time.time - _machineRuntimeData.cooldownTimer) / _machineRuntimeData.CooldownDuration;
             UpdateCooldownVisuals(initialProgress);
         }
         
