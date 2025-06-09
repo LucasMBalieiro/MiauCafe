@@ -18,16 +18,16 @@ namespace Item
 
         public void OnPointerClick(PointerEventData eventData)
         {
-            if (_itemData.Category == ItemCategory.Machine)
+            if (_itemData.Category == ItemCategory.Machine && _itemData is MachineScriptableObject machine)
             {
-                //É valido adicionar um preço pras máquinas ainda? Se for coloca aqui
-                if (_machineRuntimeData.CurrentCharges > 0 && InventoryManager.Instance.HasEmptySlot())
+                if (_machineRuntimeData.CurrentCharges > 0 && InventoryManager.Instance.HasEmptySlot() && CoinController.Instance.CanBuyItem(machine.cost))
                 {
                     BaseItemScriptableObject producedItem = _machineRuntimeData.TryProduceItem();
 
                     if (producedItem != null)
                     {
                         InventoryManager.Instance.AddItem(producedItem);
+                        CoinController.Instance.RemoveCoins(machine.cost);
                     }
                     else
                     {
