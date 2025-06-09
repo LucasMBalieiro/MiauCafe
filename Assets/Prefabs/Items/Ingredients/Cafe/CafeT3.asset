@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: CafeT3
   m_EditorClassIdentifier: 
   tier: 3
-  sprite: {fileID: -6380987134963007828, guid: bc73969cf2f295445aa3d4d6e7420989, type: 3}
+  sprite: {fileID: 8056106881306788341, guid: a97802e47d8016b44800d1c93003f313, type: 3}
   ingredientType: 0

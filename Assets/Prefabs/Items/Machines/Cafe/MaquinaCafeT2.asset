@@ -17,5 +17,5 @@ MonoBehaviour:
   machineType: 0
   cost: 15
   cooldown: 2
-  maxCharges: 2
+  maxCharges: 3
   producesIngredientType: 0
