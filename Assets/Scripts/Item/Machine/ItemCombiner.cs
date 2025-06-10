@@ -1,8 +1,9 @@
+using Item.General;
 using Managers;
 using Scriptables.Item;
 using UnityEngine;
 
-namespace Item
+namespace Item.Machine
 {
     public class ItemCombiner : MonoBehaviour
     {
@@ -34,7 +35,7 @@ namespace Item
 
                 if (typesMatch)
                 {
-                    BaseItemScriptableObject nextTierItem = ItemRegistry.Instance.GetNextTierItem(existingItemData);
+                    BaseItemScriptableObject nextTierItem = ItemRegistry.GetNextTierItem(existingItemData);
 
                     if (nextTierItem != null)
                     {

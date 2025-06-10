@@ -1,3 +1,5 @@
+using Item.Grid;
+using Managers;
 using Scriptables.Item;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -9,13 +11,23 @@ public class MachineShop : MonoBehaviour, IPointerClickHandler
     [SerializeField] private BaseItemScriptableObject machine;
     [SerializeField] private int price;
 
+    private InventoryManager _playerInventory;
+
+    private void Awake()
+    {
+        GameObject playerGrid = GameObject.FindWithTag("InventoryGrid");
+        if (playerGrid != null)
+        {
+            _playerInventory = playerGrid.GetComponent<InventoryManager>();
+        }
+    }
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        if (CoinController.Instance.CanBuyItem(price) && InventoryManager.Instance.HasEmptySlot())
+        if (GameManager.Instance.CanBuyItem(price) && _playerInventory.HasEmptySlot())
         {
-            InventoryManager.Instance.AddItem(machine);
-            CoinController.Instance.RemoveCoins(price);
+            _playerInventory.AddItem(machine);
+            GameManager.Instance.RemoveCoins(price);
         }
     }
 }

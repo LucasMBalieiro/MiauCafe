@@ -2,7 +2,7 @@ using Scriptables.Item;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Item
+namespace Item.General
 {
     public class ItemDisplay : MonoBehaviour
     {

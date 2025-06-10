@@ -1,67 +1,20 @@
-using UnityEngine;
 using System.Collections.Generic;
-using System.Linq;
 using Scriptables.Item;
+using UnityEngine;
 
-namespace Managers
+namespace Item.General
 {
-    [CreateAssetMenu(fileName = "ItemRegistry", menuName = "Items/Item Registry")]
-    public class ItemRegistry : ScriptableObject
+    public static class ItemRegistry
     {
-        private static ItemRegistry _instance;
-        public static ItemRegistry Instance
-        {
-            get
-            {
-                if (_instance == null)
-                {
-                    _instance = Resources.Load<ItemRegistry>("ItemRegistry"); //esse metodo é mt mais pica
-                    if (_instance == null)
-                    {
-                        Debug.LogError("ItemRegistry asset not found! Create one under a 'Resources' folder and name it 'ItemRegistry'.");
-                    }
-                }
-                return _instance;
-            }
-        }
-        
-        [Header("Todos os itens: ")]
-        public List<BaseItemScriptableObject> allItems;
-    
         // (ItemCategory, Type (enum int), Tier)
-        private Dictionary<(ItemCategory, int, int), BaseItemScriptableObject> _itemLookup;
+        private static Dictionary<(ItemCategory, int, int), BaseItemScriptableObject> _itemLookup;
         
-        private void OnEnable()
+        public static void Initialize(List<BaseItemScriptableObject> initialItems)
         {
-            InitializeLookup();
-        }
-        
-        private void OnValidate()
-        {
-        #if UNITY_EDITOR
-            InitializeLookup();
-        #endif
-        }
-        
-        private void InitializeLookup()
-        {
-            if (allItems == null) return;
-
             _itemLookup = new Dictionary<(ItemCategory, int, int), BaseItemScriptableObject>();
-            foreach (var item in allItems)
+            foreach (var item in initialItems)
             {
-                if (item == null)
-                {
-                    continue;
-                }
-
                 int typeId = -1;
-                
-                if (_itemLookup.ContainsKey((item.Category, typeId, item.tier)))
-                {
-                    Debug.LogWarning($"{item.name} esta duplicado");
-                    break;
-                }
 
                 if (item.Category == ItemCategory.Ingredient && item is IngredientScriptableObject ingredient)
                 {
@@ -71,16 +24,18 @@ namespace Managers
                 {
                     typeId = (int)machine.machineType;
                 }
-                else
+
+                var key = (item.Category, typeId, item.tier);
+
+                if (!_itemLookup.TryAdd(key, item))
                 {
-                    Debug.LogWarning($"{item.name} foi inserido errado, sem categoria");
-                    break;
+                    Debug.LogError($"ItemRegistry: Item {key} - DUPLICADO -");
                 }
-                _itemLookup[(item.Category, typeId, item.tier)] = item;
             }
+            Debug.Log($"ItemRegistry initialized: Count = {_itemLookup.Count} items");
         }
         
-        public BaseItemScriptableObject GetNextTierItem(BaseItemScriptableObject currentItem)
+        public static BaseItemScriptableObject GetNextTierItem(BaseItemScriptableObject currentItem)
         {
             if (currentItem == null) return null;
 
@@ -100,22 +55,22 @@ namespace Managers
         }
         
         
-        public BaseItemScriptableObject GetItem(ItemCategory category, int typeId, int tier)
+        public static BaseItemScriptableObject GetItem(ItemCategory category, int typeId, int tier)
         {
             _itemLookup.TryGetValue((category, typeId, tier), out BaseItemScriptableObject item);
             return item;
         }
-        public IngredientScriptableObject GetIngredient(IngredientType type, int tier)
+        public static IngredientScriptableObject GetIngredient(IngredientType type, int tier)
         {
             return GetItem(ItemCategory.Ingredient, (int)type, tier) as IngredientScriptableObject;
         }
-        public MachineScriptableObject GetMachine(MachineType type, int tier)
+        public static MachineScriptableObject GetMachine(MachineType type, int tier)
         {
             return GetItem(ItemCategory.Machine, (int)type, tier) as MachineScriptableObject;
         }
         
         
-        public BaseItemScriptableObject GetCombinationResult(BaseItemScriptableObject item1, BaseItemScriptableObject item2)
+        public static BaseItemScriptableObject GetCombinationResult(BaseItemScriptableObject item1, BaseItemScriptableObject item2)
         {
             //Insanidades do Gemini, mas acho que vai ser útil no futuro
             if (item1.Category == ItemCategory.Ingredient && item2.Category == ItemCategory.Ingredient &&

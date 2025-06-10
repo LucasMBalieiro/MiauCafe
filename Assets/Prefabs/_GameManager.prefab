@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &7479720113097959142
+--- !u!1 &376506074501706247
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,64 +8,42 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 3776554410885248095}
-  - component: {fileID: 5337208341133358663}
+  - component: {fileID: 3243906186514317707}
+  - component: {fileID: 1324804953930206231}
   m_Layer: 0
-  m_Name: DropRates
+  m_Name: _GameManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &3776554410885248095
+--- !u!4 &3243906186514317707
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7479720113097959142}
+  m_GameObject: {fileID: 376506074501706247}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 449.76654, y: 266.13034, z: -2.9255154}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5337208341133358663
+--- !u!114 &1324804953930206231
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7479720113097959142}
+  m_GameObject: {fileID: 376506074501706247}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3fbcbb1891cdf6343b1246a776239fdb, type: 3}
+  m_Script: {fileID: 11500000, guid: 32ef0662852e36d4eb6110c4aaa8b092, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dropRates:
-  - tier: 0
-    rate:
-    - 1
-    - 0
-    - 0
-    - 0
-  - tier: 1
-    rate:
-    - 2
-    - 1
-    - 0
-    - 0
-  - tier: 2
-    rate:
-    - 5
-    - 3
-    - 1
-    - 0
-  - tier: 3
-    rate:
-    - 8
-    - 5
-    - 3
-    - 1
+  itemRegistryData: {fileID: 11400000, guid: a92fb4f537f748a4e93ea53041b05e8b, type: 2}
+  dropRatesData: {fileID: 11400000, guid: e5a889b5cf7230b449dade1a09aa5037, type: 2}
+  coins: 999

@@ -1,9 +1,10 @@
+using Item.Machine;
 using Scriptables.Item;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-namespace Item
+namespace Item.General
 {
     public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
     {

@@ -1,9 +1,8 @@
-using Scriptables.Item;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Item
+namespace Item.Machine
 {
     public class MachineItemDisplay : MonoBehaviour
     {

@@ -1,9 +1,9 @@
+using Item.General;
 using Managers;
 using Scriptables.Item;
 using UnityEngine;
-using UnityEngine.Serialization;
 
-namespace Item
+namespace Item.Machine
 {
     public class MachineRuntimeData : MonoBehaviour
     {
@@ -79,9 +79,9 @@ namespace Item
                 
                 OnChargesChanged?.Invoke(CurrentCharges, machine.maxCharges);
 
-                BaseItemScriptableObject producedItem = ItemRegistry.Instance.GetIngredient(
+                BaseItemScriptableObject producedItem = ItemRegistry.GetIngredient(
                     machine.producesIngredientType, 
-                    DropRates.Instance.CalculateTierDrop(machine.tier)
+                    DropRates.CalculateTierDrop(machine.tier)
                 );
                 return producedItem;
             }

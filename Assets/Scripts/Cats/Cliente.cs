@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 using Item;
+using Item.General;
 using Managers; // Assuming ItemRegistry is in Managers namespace
 using Scriptables.Item; // For your new ScriptableObjects and enums
 
@@ -44,7 +45,7 @@ public class Cliente : MonoBehaviour
         // (Ensure your ItemRegistry asset is correctly populated in Unity Editor!)
 
         // Order: 2x Coffee Tier 1
-        BaseItemScriptableObject coffeeT1 = ItemRegistry.Instance.GetIngredient(IngredientType.Cafe, 1);
+        BaseItemScriptableObject coffeeT1 = ItemRegistry.GetIngredient(IngredientType.Cafe, 1);
         if (coffeeT1 != null)
         {
             orderedItems.Add(coffeeT1);
@@ -56,7 +57,7 @@ public class Cliente : MonoBehaviour
         }
 
         // Order: 1x Coffee Tier 2
-        BaseItemScriptableObject coffeeT2 = ItemRegistry.Instance.GetIngredient(IngredientType.Cafe, 2);
+        BaseItemScriptableObject coffeeT2 = ItemRegistry.GetIngredient(IngredientType.Cafe, 2);
         if (coffeeT2 != null)
         {
             orderedItems.Add(coffeeT2);

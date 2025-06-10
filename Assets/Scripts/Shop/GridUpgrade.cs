@@ -1,18 +1,22 @@
+using Item.Grid;
+using Managers;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 
 public class GridUpgrade : MonoBehaviour, IPointerClickHandler
 {
     [SerializeField] private GameObject gridPrefab;
-    [SerializeField] private Transform inventoryParent;
-
+    
+    private InventoryManager _inventoryManager;
+    private Transform _inventoryParent;
     
     [System.Serializable]public class UpgradePath
     {
         public int numSlots;
-        public int collumCount;
+        public int columCount;
         public int price;
     }
     
@@ -21,36 +25,39 @@ public class GridUpgrade : MonoBehaviour, IPointerClickHandler
     
     private void Awake()
     {
-        if (inventoryParent.childCount == 0 && upgradeTier == 0)
+        GameObject playerGrid = GameObject.FindWithTag("InventoryGrid");
+        if (playerGrid != null)
         {
-            UpdateInventory(upgradePath[upgradeTier]);
-        }
-        else
-        {
-            Debug.LogError("GridUpgrade: atributos errados/faltando");
+            _inventoryManager = playerGrid.GetComponent<InventoryManager>();
+            _inventoryParent = playerGrid.transform;
+            
+            if (_inventoryParent.childCount == 0 && upgradeTier == 0)
+            {
+                UpdateInventory(upgradePath[upgradeTier]);
+            }
         }
     }
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        if (upgradeTier < upgradePath.Length && CoinController.Instance.CanBuyItem(upgradePath[upgradeTier].price))
+        if (upgradeTier < upgradePath.Length && GameManager.Instance.CanBuyItem(upgradePath[upgradeTier].price))
         {
-            CoinController.Instance.RemoveCoins(upgradePath[upgradeTier].price);
+            GameManager.Instance.RemoveCoins(upgradePath[upgradeTier].price);
             UpdateInventory(upgradePath[upgradeTier]);
         }
     }
     
     private void UpdateInventory(UpgradePath upgradePath)
     {
-        inventoryParent.GetComponent<GridLayoutGroup>().constraintCount = upgradePath.collumCount;
+        _inventoryParent.GetComponent<GridLayoutGroup>().constraintCount = upgradePath.columCount;
 
-        int newSlots = upgradePath.numSlots - inventoryParent.childCount;
+        int newSlots = upgradePath.numSlots - _inventoryParent.childCount;
         
         for(int i = 0; i < newSlots; i++)
         {
-            GameObject newItem = Instantiate(gridPrefab, inventoryParent);
+            GameObject newItem = Instantiate(gridPrefab, _inventoryParent);
         }
-        InventoryManager.Instance.RefreshSlots();
+        _inventoryManager.RefreshSlots();
         upgradeTier++;
     }
 }
