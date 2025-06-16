@@ -3,6 +3,9 @@ using Scriptables.Item;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using System.Collections.Generic;
+using System.Linq;
+using Unity.VisualScripting;
 
 namespace Item.General
 {
@@ -16,6 +19,8 @@ namespace Item.General
     
         [HideInInspector] public Transform parentAfterDrag;
         [HideInInspector] public Transform previousParent;
+
+        public LayerMask physicsLayerMask;
     
         private ItemDisplay _itemDisplay;
         private ItemInteractionHandler _itemInteractionHandler;
@@ -96,9 +101,21 @@ namespace Item.General
 
         public void OnEndDrag(PointerEventData eventData)
         {
+            RaycastHit hit;
+            var cameraRay = Camera.main.ScreenPointToRay(Input.mousePosition);
+            if (Physics.Raycast(cameraRay, out hit, Mathf.Infinity, physicsLayerMask))
+            {
+                var cliente = hit.collider.GetComponent<Cliente>();
+                if (cliente && ItemData.Category == ItemCategory.Ingredient && ItemData is IngredientScriptableObject ingredient)
+                {
+                    if (hit.collider.gameObject.GetComponent<Cliente>().CheckOrder(ingredient))
+                    {
+                        Destroy(gameObject);
+                    }
+                }
+            }
             transform.SetParent(parentAfterDrag);
             _itemImage.raycastTarget = true;
-            
             OnItemDropped?.Invoke(this, parentAfterDrag);
         }
     

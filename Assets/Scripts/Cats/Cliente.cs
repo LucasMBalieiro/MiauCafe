@@ -15,7 +15,7 @@ public class Cliente : MonoBehaviour
     // The CatManager (or whichever system generates orders) should set these
     // Use BaseItemScriptableObject for flexibility, or IngredientScriptableObject if only ingredients are ordered
     public Transform bandeija; // Parent transform for the order UI elements
-    public List<BaseItemScriptableObject> orderedItems = new List<BaseItemScriptableObject>(); // The actual item ScriptableObjects being ordered
+    public List<IngredientScriptableObject> orderedItems = new List<IngredientScriptableObject>(); // The actual item ScriptableObjects being ordered
     public List<int> orderedQuantities = new List<int>(); // Quantities for each ordered item
 
     // (Audio related code can remain as is, it's not directly related to item system)
@@ -45,7 +45,7 @@ public class Cliente : MonoBehaviour
         // (Ensure your ItemRegistry asset is correctly populated in Unity Editor!)
 
         // Order: 2x Coffee Tier 1
-        BaseItemScriptableObject coffeeT1 = ItemRegistry.GetIngredient(IngredientType.Cafe, 1);
+        IngredientScriptableObject coffeeT1 = ItemRegistry.GetIngredient(IngredientType.Cafe, 1);
         if (coffeeT1 != null)
         {
             orderedItems.Add(coffeeT1);
@@ -57,7 +57,7 @@ public class Cliente : MonoBehaviour
         }
 
         // Order: 1x Coffee Tier 2
-        BaseItemScriptableObject coffeeT2 = ItemRegistry.GetIngredient(IngredientType.Cafe, 2);
+        IngredientScriptableObject coffeeT2 = ItemRegistry.GetIngredient(IngredientType.Cafe, 2);
         if (coffeeT2 != null)
         {
             orderedItems.Add(coffeeT2);
@@ -69,6 +69,17 @@ public class Cliente : MonoBehaviour
         }
 
         // --- Spawn the UI elements for the order ---
+        DrawOrders();
+    }
+
+    private void DrawOrders()
+    {
+        foreach (GameObject uiElement in pedidoUI)
+        {
+            Destroy(uiElement); // Destroy old UI elements if any
+        }
+        pedidoUI.Clear();
+
         for (int i = 0; i < orderedItems.Count; i++)
         {
             if (prefabPedido == null)
@@ -101,12 +112,29 @@ public class Cliente : MonoBehaviour
         }
     }
 
-    void Update()
+    public bool CheckOrder(IngredientScriptableObject ingredient)
     {
-        // Your Update logic, if any, goes here.
-        // It's unlikely to be directly affected by item system changes unless it checks order completion.
+        for (int i = 0; i < orderedItems.Count; i++)
+        {
+            IngredientScriptableObject item = orderedItems[i];
+            int qtd = orderedQuantities[i];
+            if (item.ingredientType == ingredient.ingredientType && item.tier == ingredient.tier)
+            {
+                if (qtd > 1)
+                {
+                    orderedQuantities[i]--;
+                }
+                else
+                {
+                    orderedItems.RemoveAt(i);
+                    orderedQuantities.RemoveAt(i);
+                }
+                DrawOrders();
+                return true;
+            }
+        }
+        return false;
     }
-
     // You might add methods here to check if an order is complete, e.g.:
     public bool CheckOrderCompletion(List<DraggableItem> itemsInDeliverySlot)
     {
