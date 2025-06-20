@@ -1,3 +1,4 @@
+using System;
 using Scriptables.Item;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -5,23 +6,23 @@ using UnityEngine.UI;
 
 namespace Item
 {
-    public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
+    public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler, IPointerDownHandler
     {
     
         public BaseItemScriptableObject ItemData{ get; private set; }
-    
+        
         [Header("Sprite")]
         [SerializeField] private Image _itemImage;
-    
+        
         [HideInInspector] public Transform parentAfterDrag;
         [HideInInspector] public Transform previousParent;
-    
+        
         private ItemDisplay _itemDisplay;
         private ItemInteractionHandler _itemInteractionHandler;
         
         private MachineRuntimeData _machineRuntimeData;
         private MachineItemDisplay _machineItemDisplay;
-    
+        
         //Alex, se quiser usar esses eventos pra fazer o som de combinação, dps posso te explicar como usar
         // (ou pode só ver na internet como faz kkkk)
         public delegate void ItemDroppedEvent(DraggableItem item, Transform newParent);
@@ -80,18 +81,30 @@ namespace Item
         }
         public void OnBeginDrag(PointerEventData eventData)
         {
+            //SoundManager.Instance.PlaySFX("Item_Grab");
             parentAfterDrag = transform.parent;
             previousParent = parentAfterDrag; 
-        
+            
             transform.SetParent(transform.root);
             transform.SetAsLastSibling();
             _itemImage.raycastTarget = false;
+            
         }
-
+        
+        public void OnPointerDown(PointerEventData eventData) 
+        {
+            SoundManager.Instance.PlaySFX("Item_Grab");
+        }
+        //Alex: adicionei OnPointerDown pra tocar som quando clicar no item
+        
+        
         public void OnDrag(PointerEventData eventData)
         {
             transform.position = eventData.position;
+            
         }
+
+        
 
         public void OnEndDrag(PointerEventData eventData)
         {
@@ -106,6 +119,7 @@ namespace Item
             transform.SetParent(previousParent);
             parentAfterDrag = previousParent;
             transform.localPosition = Vector3.zero;
+            SoundManager.Instance.PlaySFX("Deny");
         }
     }
 }

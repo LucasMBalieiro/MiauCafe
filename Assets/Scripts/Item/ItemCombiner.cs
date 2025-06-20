@@ -35,6 +35,7 @@ namespace Item
                 if (typesMatch)
                 {
                     BaseItemScriptableObject nextTierItem = ItemRegistry.Instance.GetNextTierItem(existingItemData);
+                    SoundManager.Instance.PlaySFX("Item_Merge");
 
                     if (nextTierItem != null)
                     {
