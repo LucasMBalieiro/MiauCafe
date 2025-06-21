@@ -93,7 +93,15 @@ namespace Item
         
         public void OnPointerDown(PointerEventData eventData) 
         {
-            SoundManager.Instance.PlaySFX("Item_Grab");
+            if (ItemData.Category == ItemCategory.Machine)
+                {
+                    SoundManager.Instance.PlaySFX("Machine_Grab"); // Exemplo de som para máquina
+                }
+            else
+                {
+                    SoundManager.Instance.PlaySFX("Item_Grab"); // Exemplo de som para item normal
+            }
+			//SoundManager.Instance.PlaySFX("Item_Grab");
         }
         //Alex: adicionei OnPointerDown pra tocar som quando clicar no item
         
@@ -108,9 +116,12 @@ namespace Item
 
         public void OnEndDrag(PointerEventData eventData)
         {
-            transform.SetParent(parentAfterDrag);
+            SoundManager.Instance.PlaySFX("Machine_Release");
+
+			transform.SetParent(parentAfterDrag);
             _itemImage.raycastTarget = true;
             
+
             OnItemDropped?.Invoke(this, parentAfterDrag);
         }
     

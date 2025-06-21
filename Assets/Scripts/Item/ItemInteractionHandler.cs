@@ -14,6 +14,7 @@ namespace Item
         {
             _itemData = itemData;
             _machineRuntimeData = machineRuntimeData;
+            
         }
 
         public void OnPointerClick(PointerEventData eventData)
@@ -21,10 +22,11 @@ namespace Item
             if (_itemData.Category == ItemCategory.Machine)
             {
                 //É valido adicionar um preço pras máquinas ainda? Se for coloca aqui
+                
                 if (_machineRuntimeData.CurrentCharges > 0 && InventoryManager.Instance.HasEmptySlot())
                 {
                     BaseItemScriptableObject producedItem = _machineRuntimeData.TryProduceItem();
-
+                    
                     if (producedItem != null)
                     {
                         InventoryManager.Instance.AddItem(producedItem);

@@ -47,6 +47,7 @@ public class InventoryManager : MonoBehaviour
             if (gridSlot.transform.childCount == 0)
             {
                 SpawnItem(itemDataToAdd, gridSlot);
+                
                 return;
             }
         }
