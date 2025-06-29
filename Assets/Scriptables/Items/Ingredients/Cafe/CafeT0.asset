@@ -15,3 +15,4 @@ MonoBehaviour:
   tier: 0
   sprite: {fileID: 21300000, guid: f2bd032925a75ed4683e2bcc313eddfc, type: 3}
   ingredientType: 0
+  cost: 5

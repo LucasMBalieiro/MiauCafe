@@ -6,6 +6,7 @@ namespace Scriptables.Item
     public class IngredientScriptableObject : BaseItemScriptableObject
     {
         public IngredientType ingredientType;
+        public int cost;
 
         public override ItemCategory Category => ItemCategory.Ingredient;
         
