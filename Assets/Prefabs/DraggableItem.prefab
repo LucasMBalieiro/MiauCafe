@@ -185,9 +185,6 @@ MonoBehaviour:
   _itemImage: {fileID: 1007046813789371205}
   parentAfterDrag: {fileID: 0}
   previousParent: {fileID: 0}
-  physicsLayerMask:
-    serializedVersion: 2
-    m_Bits: 128
 --- !u!114 &7203697433801565262
 MonoBehaviour:
   m_ObjectHideFlags: 0
