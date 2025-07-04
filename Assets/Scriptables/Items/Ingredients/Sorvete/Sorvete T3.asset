@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: Sorvete T3
   m_EditorClassIdentifier: 
   tier: 3
-  sprite: {fileID: 8030315725772889786, guid: 907c4224449dceb4f9dfbb6315a3bce9, type: 3}
+  sprite: {fileID: 2532714475396201114, guid: 6313d98156eb4884e8ca76a532493229, type: 3}
   ingredientType: 1
+  cost: 0
