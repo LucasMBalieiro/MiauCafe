@@ -7,8 +7,10 @@ namespace Item.Machine
 {
     public class MachineRuntimeData : MonoBehaviour
     {
+        private static readonly int IsCharging = Animator.StringToHash("IsCharging");
         private MachineScriptableObject machine;
         public float cooldownTimer; 
+        private Animator animator;
         
         public event System.Action<int, int> OnChargesChanged; // current, max
         public event System.Action<float> OnCooldownProgress; // 0.0 to 1.0
@@ -28,6 +30,7 @@ namespace Item.Machine
             CurrentCharges = machine.maxCharges;
             cooldownTimer = Time.time; 
             OnChargesChanged?.Invoke(CurrentCharges, machine.maxCharges);
+            animator = GetComponent<Animator>();
         }
 
         private void Update()
@@ -46,10 +49,12 @@ namespace Item.Machine
                     cooldownTimer += machine.cooldown;
                     OnChargesChanged?.Invoke(CurrentCharges, machine.maxCharges);
                 }
+                animator.SetBool(IsCharging, true);
             }
             else
             {
-                cooldownTimer = Time.time; 
+                cooldownTimer = Time.time;
+                animator.SetBool(IsCharging, false);
             }
         }
 

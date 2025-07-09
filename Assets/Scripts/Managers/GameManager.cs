@@ -16,7 +16,12 @@ namespace Managers
         [SerializeField] private DropRatesData dropRatesData;
 
         [SerializeField] private int coins;
+        
+        [SerializeField]private int currentDay;
+        [SerializeField] private DaySpawnerScriptableObject daySpawnerData;
+        
         public static event Action<int> OnCoinsChanged;
+        public static event Action<int> OnDayChanged;
         
         private void Awake()
         {
@@ -56,6 +61,26 @@ namespace Managers
             OnCoinsChanged?.Invoke(coins);
         }
         
+        /************* CONTROLLER SPAWNER DIAS *************/
         
+        public int GetCurrentDay() => currentDay;
+        
+        public Day GetCurrentDayData()
+        {
+            if (daySpawnerData != null && currentDay < daySpawnerData.days.Length)
+            {
+                return daySpawnerData.days[currentDay];
+            }
+
+            Debug.LogError($"Day {currentDay} data not found!");
+            return null;
+        }
+
+        public void ChangeDay() 
+        {
+            //TODO: arrumar como vai ser passado os dados para todas as entidades
+            currentDay++;
+            OnDayChanged?.Invoke(currentDay);
+        }
     }
 }

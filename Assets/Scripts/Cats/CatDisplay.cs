@@ -4,14 +4,12 @@ using UnityEngine;
 
 public class CatDisplay : MonoBehaviour
 {
-    [SerializeField]private SpriteRenderer headSprite;
-    [SerializeField]private SpriteRenderer bodySprite;
-    [SerializeField]private SpriteRenderer lArmSprite;
-    [SerializeField]private SpriteRenderer rArmSprite;
-    [SerializeField]private SpriteRenderer legsSprite;
-    [SerializeField]private SpriteRenderer tailSprite;
-    
-    public BaseCatScriptableObject teste;
+    [SerializeField] private SpriteRenderer headSprite;
+    [SerializeField] private SpriteRenderer bodySprite;
+    [SerializeField] private SpriteRenderer lArmSprite;
+    [SerializeField] private SpriteRenderer rArmSprite;
+    [SerializeField] private SpriteRenderer legsSprite;
+    [SerializeField] private SpriteRenderer tailSprite;
     
     public void SetSprite(BaseCatScriptableObject catData)
     {
@@ -22,10 +20,5 @@ public class CatDisplay : MonoBehaviour
         legsSprite.sprite = catData.legsSprite;
         tailSprite.sprite = catData.tailSprite;
 
-    }
-
-    public void Start()
-    {
-        SetSprite(teste);
     }
 }

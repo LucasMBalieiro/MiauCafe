@@ -47,3 +47,5 @@ MonoBehaviour:
   itemRegistryData: {fileID: 11400000, guid: a92fb4f537f748a4e93ea53041b05e8b, type: 2}
   dropRatesData: {fileID: 11400000, guid: e5a889b5cf7230b449dade1a09aa5037, type: 2}
   coins: 999
+  currentDay: 0
+  daySpawnerData: {fileID: 11400000, guid: bdc6d42c1257abc488aafcc02ebc7af0, type: 2}

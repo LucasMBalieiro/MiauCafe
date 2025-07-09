@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa5d6fe8caaf02f4a8493b65c937ae5b, type: 3}
+  m_Name: DaySpawner
+  m_EditorClassIdentifier: 
+  days:
+  - clientList:
+    - baseCat: {fileID: 11400000, guid: a8dc28b636f76b54fb13e3be2d0c37de, type: 2}
+      pedidos: {fileID: 11400000, guid: 0635eaadf2b90aa4dab8c348b54bace9, type: 2}
+    - baseCat: {fileID: 11400000, guid: a8dc28b636f76b54fb13e3be2d0c37de, type: 2}
+      pedidos: {fileID: 11400000, guid: 0635eaadf2b90aa4dab8c348b54bace9, type: 2}
+    - baseCat: {fileID: 11400000, guid: cb3b2411612156f4084fc53de90b30ec, type: 2}
+      pedidos: {fileID: 11400000, guid: 0635eaadf2b90aa4dab8c348b54bace9, type: 2}
+    - baseCat: {fileID: 11400000, guid: cb3b2411612156f4084fc53de90b30ec, type: 2}
+      pedidos: {fileID: 11400000, guid: 0635eaadf2b90aa4dab8c348b54bace9, type: 2}
+  - clientList:
+    - baseCat: {fileID: 11400000, guid: a8dc28b636f76b54fb13e3be2d0c37de, type: 2}
+      pedidos: {fileID: 11400000, guid: da6349872fae96e4aad2eacee022e18f, type: 2}
+    - baseCat: {fileID: 11400000, guid: a8dc28b636f76b54fb13e3be2d0c37de, type: 2}
+      pedidos: {fileID: 11400000, guid: da6349872fae96e4aad2eacee022e18f, type: 2}
+    - baseCat: {fileID: 11400000, guid: a8dc28b636f76b54fb13e3be2d0c37de, type: 2}
+      pedidos: {fileID: 11400000, guid: da6349872fae96e4aad2eacee022e18f, type: 2}
