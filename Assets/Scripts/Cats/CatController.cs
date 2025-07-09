@@ -89,10 +89,10 @@ public class CatController : MonoBehaviour
         {
             pedidoDicionario[deliveredItem]--;
             
-            Debug.Log($"Delivered {deliveredItem.name}. Remaining needed: {pedidoDicionario[deliveredItem]}");
-
             int remaining = pedidoDicionario[deliveredItem];
             pedidoDisplays[deliveredItem].UpdateDisplay(remaining);
+            
+            //TODO: adicionar som de entrega com sucesso aqui
             
             if (CheckIfRequestIsComplete())
             {
@@ -114,6 +114,8 @@ public class CatController : MonoBehaviour
     
     public void CompleteRequestAndLeave()
     {
+        
+        //TODO: adicionar animação de saida e audio aqui
 
         _spawnController.FreeUpPosition(_positionIndex);
         _dropSlot.SetBackgroundActive(false);

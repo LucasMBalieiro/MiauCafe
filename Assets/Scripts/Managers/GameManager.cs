@@ -72,7 +72,7 @@ namespace Managers
                 return daySpawnerData.days[currentDay];
             }
 
-            Debug.LogError($"Day {currentDay} data not found!");
+            Debug.LogError($"Não possui o dia: {currentDay}");
             return null;
         }
 

@@ -76,8 +76,10 @@ public class SpawnPositionController : MonoBehaviour
             {
                 Debug.Log("Acabou o dia");
                 Time.timeScale = 0;
+                //TODO: adicionar animação/som de final de fase aqui
                 OnDayEnd?.Invoke();
-                yield return null;
+                
+                yield break;
             }
         
             yield return null;
@@ -90,6 +92,8 @@ public class SpawnPositionController : MonoBehaviour
         CatController catController = newCat.GetComponent<CatController>();
 
         catController.Initialize(clientData.baseCat, clientData.pedidos, this, midPosition, endPositions[positionIndex], gridObjects[positionIndex], positionIndex);
+        
+        //TODO: colocar som de gato entrando no cafe aqui
         
         PedidoDropSlot dropTarget = gridObjects[positionIndex].GetComponent<PedidoDropSlot>();
         dropTarget.Initialize(catController);
