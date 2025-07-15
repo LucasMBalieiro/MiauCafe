@@ -44,6 +44,7 @@ public class GridUpgrade : MonoBehaviour, IPointerClickHandler
         {
             GameManager.Instance.RemoveCoins(upgradePath[upgradeTier].price);
             UpdateInventory(upgradePath[upgradeTier]);
+            //TODO: inserir som próprio
         }
     }
     

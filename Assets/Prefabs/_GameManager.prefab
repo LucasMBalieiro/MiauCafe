@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3243906186514317707}
   - component: {fileID: 1324804953930206231}
+  - component: {fileID: -7593560165982231900}
   m_Layer: 0
   m_Name: _GameManager
   m_TagString: Untagged
@@ -49,3 +50,30 @@ MonoBehaviour:
   coins: 999
   currentDay: 0
   daySpawnerData: {fileID: 11400000, guid: bdc6d42c1257abc488aafcc02ebc7af0, type: 2}
+--- !u!114 &-7593560165982231900
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 376506074501706247}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36164d0bd94f54a4da71c4e14a76c257, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  backgroundMusic: {fileID: 8300000, guid: 36d1eaa7d9b0d1e449e4398de823249f, type: 3}
+  musicVolume: 1
+  soundEffects:
+  - {fileID: 8300000, guid: 5deacda3937a1a74c99ffa6cee2bcf11, type: 3}
+  - {fileID: 8300000, guid: 0257225b5a1e88349aa7a34fa31d08e8, type: 3}
+  - {fileID: 8300000, guid: cb2679fdb58f28e4f80b952325498d8b, type: 3}
+  - {fileID: 8300000, guid: cd0d012bff22fae45b4f2a8b35924ac8, type: 3}
+  - {fileID: 8300000, guid: b62b183d415827b4fa2091d9acb7dcc6, type: 3}
+  - {fileID: 8300000, guid: 4da57d0fef9a8be4ead0809a3dddc0fc, type: 3}
+  - {fileID: 8300000, guid: 7b27fca7c21619e4ba763c3b875721e6, type: 3}
+  - {fileID: 8300000, guid: 4b51814a912a070478d81eb04c30b5ba, type: 3}
+  - {fileID: 8300000, guid: f72cedbed67633b4d9d53c006985e898, type: 3}
+  sfxVolume: 1
+  musicSlider: {fileID: 0}
+  sfxSlider: {fileID: 0}
