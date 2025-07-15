@@ -2,11 +2,15 @@ using Item.General;
 using Managers;
 using Scriptables.Item;
 using UnityEngine;
+using System.Collections;
 
 namespace Item.Machine
 {
     public class ItemCombiner : MonoBehaviour
     {
+        float scaleDownTarget = 0.01f;
+        float scaleDownDuration = 0.2f;
+        float scaleUpDuration = 0.2f;   
 
         public bool TryCombineItems(DraggableItem existingDraggableItem, DraggableItem droppedDraggableItem)
         {
@@ -40,7 +44,9 @@ namespace Item.Machine
 
                     if (nextTierItem != null)
                     {
-                        return PerformCombination(existingDraggableItem, droppedDraggableItem, nextTierItem);
+                        //PerformCombination(existingDraggableItem, droppedDraggableItem, nextTierItem);
+                        StartCoroutine(PerformCombination(existingDraggableItem, droppedDraggableItem, nextTierItem));
+                        return true;
                     }
                 }
             }
@@ -56,12 +62,51 @@ namespace Item.Machine
             return false;
         }
 
-        private static bool PerformCombination(DraggableItem existingItem, DraggableItem droppedItem, BaseItemScriptableObject newResultItemData)
+        IEnumerator PerformCombination(DraggableItem existingItem, DraggableItem droppedItem, BaseItemScriptableObject newResultItemData)
         {
+            Vector3 originalScale = existingItem.transform.localScale;
+
+            // Phase 1: Scale both objects down simultaneously
+            // Start both scale down coroutines and wait for them to complete
+            StartCoroutine(ScaleObject(existingItem.gameObject, new Vector3(scaleDownTarget, scaleDownTarget, scaleDownTarget), scaleDownDuration));
+            StartCoroutine(ScaleObject(droppedItem.gameObject, new Vector3(scaleDownTarget, scaleDownTarget, scaleDownTarget), scaleDownDuration));
+            yield return new WaitForSeconds(scaleDownDuration);
+
             existingItem.Initialize(newResultItemData); 
             Destroy(droppedItem.gameObject);
 
-            return true;
+            // Phase 2: Scale objectToScale1 back up to its original size
+            yield return StartCoroutine(ScaleObject(existingItem.gameObject, originalScale, scaleUpDuration));
+        }
+
+        IEnumerator ScaleObject(GameObject obj, Vector3 targetScale, float duration)
+        {
+            if (obj == null)
+            {
+                Debug.LogWarning("Attempted to scale a null object.");
+                yield break; // Exit the coroutine if the object is null
+            }
+
+            Vector3 initialScale = obj.transform.localScale;
+            float timer = 0f;
+
+            while (timer < duration)
+            {
+                // Calculate the interpolation factor (0 to 1)
+                float t = timer / duration;
+
+                // Smoothly interpolate between the initial and target scale
+                obj.transform.localScale = Vector3.Lerp(initialScale, targetScale, t);
+
+                // Increment the timer by the time passed since the last frame
+                timer += Time.deltaTime;
+
+                // Wait for the next frame
+                yield return null;
+            }
+
+            // Ensure the object reaches the exact target scale at the end
+            obj.transform.localScale = targetScale;
         }
     }
 }
