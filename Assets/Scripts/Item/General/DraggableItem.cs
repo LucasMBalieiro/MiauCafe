@@ -1,3 +1,4 @@
+using System;
 using Item.Machine;
 using Scriptables.Item;
 using UnityEngine;
@@ -6,23 +7,23 @@ using UnityEngine.UI;
 
 namespace Item.General
 {
-    public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
+    public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler, IPointerDownHandler
     {
     
         public BaseItemScriptableObject ItemData{ get; private set; }
-    
+        
         [Header("Sprite")]
         [SerializeField] private Image _itemImage;
-    
+        
         [HideInInspector] public Transform parentAfterDrag;
         [HideInInspector] public Transform previousParent;
-    
+        
         private ItemDisplay _itemDisplay;
         private ItemInteractionHandler _itemInteractionHandler;
         
         private MachineRuntimeData _machineRuntimeData;
         private MachineItemDisplay _machineItemDisplay;
-    
+        
         //Alex, se quiser usar esses eventos pra fazer o som de combinação, dps posso te explicar como usar
         // (ou pode só ver na internet como faz kkkk)
         public delegate void ItemDroppedEvent(DraggableItem item, Transform newParent);
@@ -81,24 +82,47 @@ namespace Item.General
         }
         public void OnBeginDrag(PointerEventData eventData)
         {
+            //SoundManager.Instance.PlaySFX("Item_Grab");
             parentAfterDrag = transform.parent;
             previousParent = parentAfterDrag; 
-        
+            
             transform.SetParent(transform.root);
             transform.SetAsLastSibling();
             _itemImage.raycastTarget = false;
+            
         }
-
+        
+        public void OnPointerDown(PointerEventData eventData) 
+        {
+            if (ItemData.Category == ItemCategory.Machine)
+                {
+                    SoundManager.Instance.PlaySFX("Machine_Grab"); // Exemplo de som para máquina
+                }
+            else
+                {
+                    SoundManager.Instance.PlaySFX("Item_Grab"); // Exemplo de som para item normal
+            }
+			//SoundManager.Instance.PlaySFX("Item_Grab");
+        }
+        //Alex: adicionei OnPointerDown pra tocar som quando clicar no item
+        
+        
         public void OnDrag(PointerEventData eventData)
         {
             transform.position = eventData.position;
+            
         }
+
+        
 
         public void OnEndDrag(PointerEventData eventData)
         {
-            transform.SetParent(parentAfterDrag);
+            SoundManager.Instance.PlaySFX("Machine_Release");
+
+			transform.SetParent(parentAfterDrag);
             _itemImage.raycastTarget = true;
             
+
             OnItemDropped?.Invoke(this, parentAfterDrag);
         }
     
@@ -107,6 +131,7 @@ namespace Item.General
             transform.SetParent(previousParent);
             parentAfterDrag = previousParent;
             transform.localPosition = Vector3.zero;
+            SoundManager.Instance.PlaySFX("Deny");
         }
     }
 }

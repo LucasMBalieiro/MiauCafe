@@ -26,6 +26,7 @@ namespace Item.General
         {
             _itemData = itemData;
             _machineRuntimeData = machineRuntimeData;
+            
         }
 
         public void OnPointerClick(PointerEventData eventData)
@@ -35,7 +36,7 @@ namespace Item.General
                 if (_machineRuntimeData.CurrentCharges > 0 && _inventoryManager.HasEmptySlot() && GameManager.Instance.CanBuyItem(machine.cost))
                 {
                     BaseItemScriptableObject producedItem = _machineRuntimeData.TryProduceItem();
-
+                    
                     if (producedItem != null)
                     {
                         _inventoryManager.AddItem(producedItem);
