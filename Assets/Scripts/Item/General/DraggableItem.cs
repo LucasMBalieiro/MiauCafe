@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 namespace Item.General
 {
-    public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler, IPointerDownHandler
+    public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
     {
     
         public BaseItemScriptableObject ItemData{ get; private set; }
@@ -92,20 +92,6 @@ namespace Item.General
             
         }
         
-        public void OnPointerDown(PointerEventData eventData) 
-        {
-            if (ItemData.Category == ItemCategory.Machine)
-                {
-                    SoundManager.Instance.PlaySFX("Machine_Grab"); // Exemplo de som para máquina
-                }
-            else
-                {
-                    SoundManager.Instance.PlaySFX("Item_Grab"); // Exemplo de som para item normal
-            }
-			//SoundManager.Instance.PlaySFX("Item_Grab");
-        }
-        //Alex: adicionei OnPointerDown pra tocar som quando clicar no item
-        
         
         public void OnDrag(PointerEventData eventData)
         {
@@ -131,7 +117,7 @@ namespace Item.General
             transform.SetParent(previousParent);
             parentAfterDrag = previousParent;
             transform.localPosition = Vector3.zero;
-            SoundManager.Instance.PlaySFX("Deny");
+            SoundManager.Instance.PlaySFX("MergeError");
         }
     }
 }
