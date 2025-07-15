@@ -115,7 +115,7 @@ public class CatController : MonoBehaviour
     public void CompleteRequestAndLeave()
     {
         
-        //TODO: adicionar animação de saida e audio aqui
+        SoundManager.Instance.PlaySFX("Deliver");
 
         _spawnController.FreeUpPosition(_positionIndex);
         _dropSlot.SetBackgroundActive(false);
