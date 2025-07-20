@@ -1,6 +1,7 @@
 using Item.Grid;
 using Managers;
 using Scriptables.Item;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.Rendering.Universal;
@@ -10,6 +11,7 @@ public class MachineShop : MonoBehaviour, IPointerClickHandler
     
     [SerializeField] private BaseItemScriptableObject machine;
     [SerializeField] private int price;
+    [SerializeField] private TextMeshProUGUI priceText;
 
     private InventoryManager _playerInventory;
 
@@ -20,6 +22,8 @@ public class MachineShop : MonoBehaviour, IPointerClickHandler
         {
             _playerInventory = playerGrid.GetComponent<InventoryManager>();
         }
+        
+        priceText.text = price.ToString();
     }
 
     public void OnPointerClick(PointerEventData eventData)
@@ -31,4 +35,5 @@ public class MachineShop : MonoBehaviour, IPointerClickHandler
             SoundManager.Instance.PlaySFX("Shop_Purchase");
         }
     }
+    
 }

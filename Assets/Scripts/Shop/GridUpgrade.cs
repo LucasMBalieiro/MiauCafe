@@ -1,5 +1,6 @@
 using Item.Grid;
 using Managers;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.Serialization;
@@ -22,6 +23,8 @@ public class GridUpgrade : MonoBehaviour, IPointerClickHandler
     
     [SerializeField] private UpgradePath[] upgradePath;
     [SerializeField] private int upgradeTier;
+    
+    [SerializeField] private TextMeshProUGUI priceText;
     
     private void Awake()
     {
@@ -60,5 +63,18 @@ public class GridUpgrade : MonoBehaviour, IPointerClickHandler
         }
         _inventoryManager.RefreshSlots();
         upgradeTier++;
+        UpdatePrice();
+    }
+
+    private void UpdatePrice()
+    {
+        if (upgradeTier < upgradePath.Length)
+        {
+            priceText.text = upgradePath[upgradeTier].price.ToString();
+        }
+        else
+        {
+            priceText.text = "MAX";
+        }
     }
 }
