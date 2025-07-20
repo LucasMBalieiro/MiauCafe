@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: Pao T2
   m_EditorClassIdentifier: 
   tier: 2
-  sprite: {fileID: 2585532968352175017, guid: 7230279cd4bbb9e40a7f3f7a8da638ed, type: 3}
+  sprite: {fileID: 2871497968227023641, guid: 14752ce67ea75a84f85768e29e25338e, type: 3}
   ingredientType: 3
+  cost: 0

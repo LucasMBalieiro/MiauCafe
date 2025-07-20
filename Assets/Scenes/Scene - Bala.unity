@@ -1817,6 +1817,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: _GameManager
       objectReference: {fileID: 0}
+    - target: {fileID: 1324804953930206231, guid: c7a7c8de03224d6498d517f4c810393d, type: 3}
+      propertyPath: coins
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 3243906186514317707, guid: c7a7c8de03224d6498d517f4c810393d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -3241,7 +3245,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   machine: {fileID: 11400000, guid: 94c611b1491454f449354534a63fc607, type: 2}
-  price: 0
+  price: 300
 --- !u!114 &1140403771
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4212,7 +4216,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   machine: {fileID: 11400000, guid: b23a7cb9092548b429a433ae33af001b, type: 2}
-  price: 0
+  price: 400
 --- !u!114 &1326132402
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5655,7 +5659,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   machine: {fileID: 11400000, guid: 68cc0e50b7f04f24fac6a797d6c285d7, type: 2}
-  price: 0
+  price: 200
 --- !u!114 &1924618538
 MonoBehaviour:
   m_ObjectHideFlags: 0

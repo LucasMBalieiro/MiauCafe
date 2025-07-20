@@ -10,9 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 613afeaf8abfdf04a94ac893469bd41e, type: 3}
-  m_Name: pedidofds
+  m_Name: Pedido 1-2
   m_EditorClassIdentifier: 
-  value: 20
+  value: 53
   pedidos:
   - ingredient: {fileID: 11400000, guid: 5a78c52fc553493469a4f0ad4c0c44d1, type: 2}
+    quantity: 5
+  - ingredient: {fileID: 11400000, guid: b5a54f7915988b24fb320679998b2e29, type: 2}
     quantity: 1
+  - ingredient: {fileID: 0}
+    quantity: 0

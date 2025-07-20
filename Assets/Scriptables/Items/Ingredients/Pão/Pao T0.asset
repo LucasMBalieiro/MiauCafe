@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: Pao T0
   m_EditorClassIdentifier: 
   tier: 0
-  sprite: {fileID: 2585532968352175017, guid: 7230279cd4bbb9e40a7f3f7a8da638ed, type: 3}
+  sprite: {fileID: -939397776752258343, guid: 208737f4d6c411b4f9f4b824b59e4ce0, type: 3}
   ingredientType: 3
+  cost: 0
