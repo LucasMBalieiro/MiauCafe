@@ -12,7 +12,6 @@ namespace Item.Grid
 
         private void Awake()
         {
-            // Get the ItemCombiner component. It should be on the same GameObject or a parent.
             _itemCombiner = GetComponent<ItemCombiner>();
             if (_itemCombiner == null)
             {

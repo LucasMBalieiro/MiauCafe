@@ -1,9 +1,7 @@
-using Item.General;
-using Managers;
 using Scriptables.Item;
 using UnityEngine;
 
-namespace Item.Machine
+namespace Item.General
 {
     public class ItemCombiner : MonoBehaviour
     {
@@ -39,18 +37,11 @@ namespace Item.Machine
 
                     if (nextTierItem != null)
                     {
+                        SoundManager.Instance.PlaySFX("Item_Merge");
                         return PerformCombination(existingDraggableItem, droppedDraggableItem, nextTierItem);
                     }
                 }
             }
-
-            /* Se tiver o petit gateau la 
-            BaseItemScriptableObject specialCombinationResult = ItemRegistry.Instance.GetCombinationResult(existingItemData, droppedItemData);
-            if (specialCombinationResult != null)
-            {
-                return PerformCombination(existingDraggableItem, droppedDraggableItem, specialCombinationResult);
-            }
-            */
 
             return false;
         }

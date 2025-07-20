@@ -1,4 +1,5 @@
 using System;
+using Managers;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
@@ -7,13 +8,27 @@ public class PauseMenu : MonoBehaviour
 {
     [SerializeField]private GameObject pauseMenu;
     [SerializeField]private GameObject optionsMenu;
-    [SerializeField]private GameObject mainHud;
+    [SerializeField]private GameObject dayCompleteMenu;
+    [SerializeField]private GameObject[] hudElements;
     private bool isPaused = false;
+    
+    [SerializeField] private SpawnPositionController spawner;
     
     private void Start()
     {
         pauseMenu.SetActive(false);
         optionsMenu.SetActive(false);
+        dayCompleteMenu.SetActive(false);
+    }
+
+    private void OnEnable()
+    {
+        SpawnPositionController.OnDayEnd += DayCompleteScreen;
+    }
+
+    private void OnDisable()
+    {
+        SpawnPositionController.OnDayEnd -= DayCompleteScreen;
     }
 
     private void Update()
@@ -31,12 +46,27 @@ public class PauseMenu : MonoBehaviour
         }
     }
 
+    private void DayCompleteScreen()
+    {
+        Time.timeScale = 0;
+        foreach (GameObject element in hudElements)
+        {
+            element.SetActive(false);
+        }
+        
+        dayCompleteMenu.SetActive(true);
+    }
+
     public void PauseGame()
     {
         isPaused = true;
         Time.timeScale = 0;
         pauseMenu.SetActive(true);
-        mainHud.SetActive(false);
+
+        foreach (GameObject element in hudElements)
+        {
+            element.SetActive(false);
+        }
     }
 
     public void ResumeGame()
@@ -45,7 +75,17 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 1;
         pauseMenu.SetActive(false);
         optionsMenu.SetActive(false);
-        mainHud.SetActive(true);
+        foreach (GameObject element in hudElements)
+        {
+            element.SetActive(true);
+        }
+    }
+
+    public void NextLevel()
+    {
+        Time.timeScale = 1;
+        GameManager.Instance.ChangeDay();
+        SceneManager.LoadScene("Scene - Bala"); //TODO: Ver como vamos criar a proxima cena corretamente
     }
 
     public void BackToMainMenu()

@@ -28,6 +28,7 @@ public class MachineShop : MonoBehaviour, IPointerClickHandler
         {
             _playerInventory.AddItem(machine);
             GameManager.Instance.RemoveCoins(price);
+            SoundManager.Instance.PlaySFX("Shop_Purchase");
         }
     }
 }

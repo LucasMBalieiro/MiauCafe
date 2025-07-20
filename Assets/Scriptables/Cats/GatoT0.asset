@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67003e5b36a797e4184355b9f1edbdd8, type: 3}
+  m_Name: GatoT0
+  m_EditorClassIdentifier: 
+  tier: 0
+  headSprite: {fileID: -2323979528897524962, guid: 386c99e33770a3c4387ab6524b2fb88c, type: 3}
+  bodySprite: {fileID: -6273455141721505619, guid: d6a0a1716d61ed1489a5f368474b7733, type: 3}
+  lArmSprite: {fileID: 3972714877285096504, guid: 1a08cc564cc92e747837c7d2169d755d, type: 3}
+  rArmSprite: {fileID: 3972714877285096504, guid: 1a08cc564cc92e747837c7d2169d755d, type: 3}
+  legsSprite: {fileID: 8559668697185797717, guid: 954b9db2006c93942a1d7968d90b554b, type: 3}
+  tailSprite: {fileID: 3225796680370940622, guid: 61a6dcc1cdba44342a5f31785cc1b50e, type: 3}

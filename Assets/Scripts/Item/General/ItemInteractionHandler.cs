@@ -26,31 +26,35 @@ namespace Item.General
         {
             _itemData = itemData;
             _machineRuntimeData = machineRuntimeData;
+            
         }
 
         public void OnPointerClick(PointerEventData eventData)
         {
             if (_itemData.Category == ItemCategory.Machine && _itemData is MachineScriptableObject machine)
             {
+                
+                
                 if (_machineRuntimeData.CurrentCharges > 0 && _inventoryManager.HasEmptySlot() && GameManager.Instance.CanBuyItem(machine.cost))
                 {
                     BaseItemScriptableObject producedItem = _machineRuntimeData.TryProduceItem();
-
                     if (producedItem != null)
                     {
+                        SoundManager.Instance.PlaySFX("GenerateIngredient");
                         _inventoryManager.AddItem(producedItem);
                         GameManager.Instance.RemoveCoins(machine.cost);
                     }
-                    else
-                    {
-                        Debug.LogWarning("Maquina não possui SO equivalente para ingredientes");
-                    }
+                }
+                else
+                {
+                    SoundManager.Instance.PlaySFX("Machine_Grab");
                 }
             }
             else
             {
-                //Se for colocar aquele negocio de ingrediente brilhar quando clickar
+                SoundManager.Instance.PlaySFX("Item_Grab");
             }
+            
         }
     }
 }

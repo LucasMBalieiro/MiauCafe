@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 67003e5b36a797e4184355b9f1edbdd8, type: 3}
-  m_Name: GatoT2
+  m_Name: GatoT1
   m_EditorClassIdentifier: 
-  tier: 0
-  headSprite: {fileID: 21300000, guid: f9a6f118b5147da4292dccb06ca9edab, type: 3}
+  tier: 1
+  headSprite: {fileID: -7970245243227319335, guid: 25a7ec6ce78eb1c4196159c39163ec5d, type: 3}
   bodySprite: {fileID: -749210994087435359, guid: 200b2932b86754545ae5e6b96dde1b92, type: 3}
   lArmSprite: {fileID: 7743945888373972985, guid: 1bb0dfe7f6497ea448e11e0e52d7381a, type: 3}
   rArmSprite: {fileID: 7743945888373972985, guid: 1bb0dfe7f6497ea448e11e0e52d7381a, type: 3}
