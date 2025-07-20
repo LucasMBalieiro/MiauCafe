@@ -91,6 +91,11 @@ public class CatController : MonoBehaviour
             
             int remaining = pedidoDicionario[deliveredItem];
             pedidoDisplays[deliveredItem].UpdateDisplay(remaining);
+
+            if (remaining == 0)
+            {
+                pedidoDicionario.Remove(deliveredItem);
+            }
             
             //TODO: adicionar som de entrega com sucesso aqui
             
