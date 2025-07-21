@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 127919870556316513}
   - component: {fileID: 5523445033987780530}
   m_Layer: 0
-  m_Name: Larm
+  m_Name: Rarm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 431026715527084400}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.022, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 7743945888373972985, guid: 1bb0dfe7f6497ea448e11e0e52d7381a, type: 3}
+  m_Sprite: {fileID: 1081463405882004822, guid: c7aafeeeadf63bf4681b6bd44072c993, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -163,7 +163,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: -2323979528897524962, guid: 386c99e33770a3c4387ab6524b2fb88c, type: 3}
+  m_Sprite: {fileID: -2446378876621786899, guid: b5150130de5ea4f47be44cc2c2a2c01c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -250,7 +250,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: -6273455141721505619, guid: d6a0a1716d61ed1489a5f368474b7733, type: 3}
+  m_Sprite: {fileID: 6071917869938205177, guid: e3d48f1d248178948b0e5c480e1c13b6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -337,7 +337,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 8559668697185797717, guid: 954b9db2006c93942a1d7968d90b554b, type: 3}
+  m_Sprite: {fileID: -2994306678395585821, guid: 60a2128ab6b29bf4bb818c54a33c7f27, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -539,7 +539,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 3225796680370940622, guid: 61a6dcc1cdba44342a5f31785cc1b50e, type: 3}
+  m_Sprite: {fileID: -4550763509794624745, guid: 7551420a6f1e3e946b0aa4c3df08bbf2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -561,7 +561,7 @@ GameObject:
   - component: {fileID: 5036648615933129074}
   - component: {fileID: 3741031554097082987}
   m_Layer: 0
-  m_Name: Rarm
+  m_Name: Larm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -576,7 +576,7 @@ Transform:
   m_GameObject: {fileID: 8353728854204907576}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.354, y: -0.018, z: 0}
+  m_LocalPosition: {x: 0, y: -0.018, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -626,7 +626,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 7743945888373972985, guid: 1bb0dfe7f6497ea448e11e0e52d7381a, type: 3}
+  m_Sprite: {fileID: 2333463621020257804, guid: 87cd4113ab49eba41b49beb19fb4b303, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

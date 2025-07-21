@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 67003e5b36a797e4184355b9f1edbdd8, type: 3}
-  m_Name: GatoT1
+  m_Name: Metida
   m_EditorClassIdentifier: 
   tier: 1
   headSprite: {fileID: -7970245243227319335, guid: 25a7ec6ce78eb1c4196159c39163ec5d, type: 3}

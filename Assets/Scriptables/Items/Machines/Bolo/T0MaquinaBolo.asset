@@ -15,7 +15,7 @@ MonoBehaviour:
   tier: 0
   sprite: {fileID: 549805820657891634, guid: a4cfe81aa80f917449378999296a6d3c, type: 3}
   machineType: 2
-  cost: 2
+  cost: 0
   cooldown: 7
   maxCharges: 1
   producesIngredientType: 2
