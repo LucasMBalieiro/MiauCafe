@@ -11,16 +11,31 @@ public class OptionsMenu : MonoBehaviour, IDataPersistence
     private float _SFXVolume;
     private float _MusicVolume;
 
-    private void OnEnable()
+    private void Start()
     {
-        SFXVolumeSlider.value = _SFXVolume;
-        MusicVolumeSlider.value = _MusicVolume * 10;
+        ApplySettings();
+    }
+    
+    public void OnSFXVolumeChanged(float volume)
+    {
+        SoundManager.Instance.SetSFXVolume(volume / 10);
+        _SFXVolume = volume / 10;
     }
 
-    private void Update()
+    public void OnMusicVolumeChanged(float volume)
     {
-        float convertedMusicVolume = MusicVolumeSlider.value / 10;
-        SoundManager.Instance.SetMusicVolume(convertedMusicVolume);
+        SoundManager.Instance.SetMusicVolume(volume / 10);
+        
+        _MusicVolume = volume / 10;
+    }
+
+    private void ApplySettings()
+    {
+        MusicVolumeSlider.value = _MusicVolume * 10;
+        SFXVolumeSlider.value = _SFXVolume * 10;
+        
+        SoundManager.Instance.SetMusicVolume(_MusicVolume);
+        SoundManager.Instance.SetSFXVolume(_SFXVolume);
     }
 
     public void LoadData(GameData data)

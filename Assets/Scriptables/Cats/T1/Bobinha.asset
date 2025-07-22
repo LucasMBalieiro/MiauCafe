@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67003e5b36a797e4184355b9f1edbdd8, type: 3}
+  m_Name: Bobinha
+  m_EditorClassIdentifier: 
+  tier: 0
+  headSprite: {fileID: -4905739894289774518, guid: 6fec1a663459f4e4fb3f0e582b06b0ff, type: 3}
+  bodySprite: {fileID: 1073095598981335138, guid: b8c9cc868003d434fbe9ca48fae64a82, type: 3}
+  lArmSprite: {fileID: -4929744076628654242, guid: 8a7510f5827098c4489a45a14c85fdad, type: 3}
+  rArmSprite: {fileID: -3521531701524025749, guid: 038d0796635c6ff48855cd99fcc5639b, type: 3}
+  legsSprite: {fileID: 2007943832094692376, guid: c2c1315034612ff4a87c9830badf7dde, type: 3}
+  tailSprite: {fileID: -414565609300123696, guid: 974a40bebf0e13546a3d495e287c6fcd, type: 3}

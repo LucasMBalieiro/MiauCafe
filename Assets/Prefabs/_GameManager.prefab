@@ -48,7 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemRegistryData: {fileID: 11400000, guid: a92fb4f537f748a4e93ea53041b05e8b, type: 2}
   dropRatesData: {fileID: 11400000, guid: e5a889b5cf7230b449dade1a09aa5037, type: 2}
-  coins: 999
+  coins: 0
   currentDay: 0
   daySpawnerData: {fileID: 11400000, guid: bdc6d42c1257abc488aafcc02ebc7af0, type: 2}
 --- !u!114 &-7593560165982231900
@@ -78,8 +78,6 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 34112ec6ac0e81b46bdbd4d105f500e3, type: 3}
   - {fileID: 8300000, guid: e0c0fda02b6b29343981fbf18f12ccc1, type: 3}
   sfxVolume: 1
-  musicSlider: {fileID: 0}
-  sfxSlider: {fileID: 0}
 --- !u!114 &6641787887047653572
 MonoBehaviour:
   m_ObjectHideFlags: 0

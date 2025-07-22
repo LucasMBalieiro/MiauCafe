@@ -30,6 +30,8 @@ namespace DataPersistence
         [SerializeField] private string fileName;
         private FileDataHandler fileDataHandler;
         
+        private bool isNewGame = false;
+        
         private void Start()
         {
             LoadGame();
@@ -46,7 +48,7 @@ namespace DataPersistence
         public void OnSceneLoaded(Scene scene, LoadSceneMode mode)
         {
             // TODO: gambiarra do krl isso, melhor generalizar no futuro
-            if (scene.name == "Scene - Bala")
+            if (scene.name == "Scene - Bala" || scene.name == "MainMenu - Bala")
             {
                 this.LoadGame();
             }
@@ -60,16 +62,23 @@ namespace DataPersistence
         public void NewGame()
         {
             this.gameData = new GameData();
+            this.isNewGame = true;
         }
 
         public void LoadGame()
         {
             this.dataPersistenceObjects = FindAllDataPersistenceObjects();
-            this.gameData = fileDataHandler.Load();
-
+            if (this.isNewGame)
+            {
+                this.isNewGame = false; 
+            }
+            else
+            {
+                this.gameData = fileDataHandler.Load();
+            }
             if (this.gameData == null)
             {
-                Debug.Log("gameData is null, gerando NewGame");
+                Debug.Log("No save data found. Starting a New Game.");
                 NewGame();
             }
 

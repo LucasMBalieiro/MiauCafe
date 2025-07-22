@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 1081463405882004822, guid: c7aafeeeadf63bf4681b6bd44072c993, type: 3}
+  m_Sprite: {fileID: -4648339299648586845, guid: d87ade928d24901498545a001b6588cf, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -163,7 +163,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: -2446378876621786899, guid: b5150130de5ea4f47be44cc2c2a2c01c, type: 3}
+  m_Sprite: {fileID: 6767822316188616742, guid: 0e487c4df483c45468a3f6bcd04274b4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -250,7 +250,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 6071917869938205177, guid: e3d48f1d248178948b0e5c480e1c13b6, type: 3}
+  m_Sprite: {fileID: 8744027938415796461, guid: 35981277ab8a0e1478cf8c92ab485e1c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -337,7 +337,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: -2994306678395585821, guid: 60a2128ab6b29bf4bb818c54a33c7f27, type: 3}
+  m_Sprite: {fileID: 1005262415923834555, guid: 32e316f70353545409296843648fd695, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -539,7 +539,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: -4550763509794624745, guid: 7551420a6f1e3e946b0aa4c3df08bbf2, type: 3}
+  m_Sprite: {fileID: -4867944999661142638, guid: 25322109496af6540b78712ba055813c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -626,7 +626,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 2333463621020257804, guid: 87cd4113ab49eba41b49beb19fb4b303, type: 3}
+  m_Sprite: {fileID: 1976871565163852310, guid: a6605ce439cf1114fae54caab617ec03, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

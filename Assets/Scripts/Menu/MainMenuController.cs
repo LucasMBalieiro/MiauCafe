@@ -17,18 +17,9 @@ public class MainMenuController : MonoBehaviour, IDataPersistence
     
     private void Start()
     {
-        if (DataPersistenceManager.Instance.HasSaveData())
-        {
-            loadButton.interactable = true;
-            GameData.SetActive(true);
-            dayText.text = "Day - " + _day;
-            coinsText.text = "Coins - " + _coins;
-        }
-        else
-        {
-            GameData.SetActive(false);
-            loadButton.interactable = false;
-        }
+        bool hasSaveData = DataPersistenceManager.Instance.HasSaveData();
+        loadButton.interactable = hasSaveData;
+        GameData.SetActive(hasSaveData);
     }
 
     public void NewGame()
@@ -47,10 +38,18 @@ public class MainMenuController : MonoBehaviour, IDataPersistence
         Application.Quit();
     }
 
+    private void UpdateUI()
+    {
+        dayText.text = "Day - " + _day;
+        coinsText.text = "Coins - " + _coins;
+    }
+
     public void LoadData(GameData data)
     {
         _day = data.currentDay;
         _coins = data.currentCoins;
+
+        UpdateUI();
     }
 
     public void SaveData(ref GameData data)
