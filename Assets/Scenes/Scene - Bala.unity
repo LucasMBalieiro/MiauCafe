@@ -392,7 +392,7 @@ Transform:
   m_GameObject: {fileID: 48076028}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.2, y: -1.5, z: 0}
+  m_LocalPosition: {x: -1.2, y: -1.5, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -711,7 +711,7 @@ Transform:
   m_GameObject: {fileID: 167755483}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -7.2, y: -1.5, z: 0}
+  m_LocalPosition: {x: -7.2, y: -1.5, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1488,7 +1488,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 561492835}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3297,6 +3297,7 @@ MonoBehaviour:
   machine: {fileID: 11400000, guid: 8eaf036cf51d424469d17a9cc060b597, type: 2}
   price: 20
   priceText: {fileID: 561492837}
+  isCoffeeMachine: 1
 --- !u!114 &1102004949
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3659,6 +3660,7 @@ MonoBehaviour:
   machine: {fileID: 11400000, guid: 94c611b1491454f449354534a63fc607, type: 2}
   price: 100
   priceText: {fileID: 1165245115}
+  isCoffeeMachine: 0
 --- !u!114 &1140403771
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4767,6 +4769,7 @@ MonoBehaviour:
   machine: {fileID: 11400000, guid: b23a7cb9092548b429a433ae33af001b, type: 2}
   price: 200
   priceText: {fileID: 80825170}
+  isCoffeeMachine: 0
 --- !u!114 &1326132402
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5615,7 +5618,7 @@ Transform:
   m_GameObject: {fileID: 1737509629}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.2, y: -1.5, z: 0}
+  m_LocalPosition: {x: -4.2, y: -1.5, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6350,6 +6353,7 @@ MonoBehaviour:
   machine: {fileID: 11400000, guid: 68cc0e50b7f04f24fac6a797d6c285d7, type: 2}
   price: 40
   priceText: {fileID: 1607480201}
+  isCoffeeMachine: 0
 --- !u!114 &1924618538
 MonoBehaviour:
   m_ObjectHideFlags: 0

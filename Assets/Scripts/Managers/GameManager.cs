@@ -1,4 +1,5 @@
 using System;
+using DataPersistence;
 using Item.General;
 using Item.Machine;
 using Scriptables.Item;
@@ -8,7 +9,7 @@ using UnityEngine.Serialization;
 
 namespace Managers
 {
-    public class GameManager : MonoBehaviour
+    public class GameManager : MonoBehaviour, IDataPersistence
     {
         public static GameManager Instance { get; private set; }
         
@@ -16,7 +17,6 @@ namespace Managers
         [SerializeField] private DropRatesData dropRatesData;
 
         [SerializeField] private int coins;
-        
         [SerializeField]private int currentDay;
         [SerializeField] private DaySpawnerScriptableObject daySpawnerData;
         
@@ -78,9 +78,21 @@ namespace Managers
 
         public void ChangeDay() 
         {
-            //TODO: arrumar como vai ser passado os dados para todas as entidades
             currentDay++;
             OnDayChanged?.Invoke(currentDay);
+            DataPersistenceManager.Instance.SaveGame();
+        }
+
+        public void LoadData(GameData data)
+        {
+            this.coins = data.currentCoins;
+            this.currentDay = data.currentDay;
+        }
+
+        public void SaveData(ref GameData data)
+        {
+            data.currentCoins = coins;
+            data.currentDay = currentDay;
         }
     }
 }

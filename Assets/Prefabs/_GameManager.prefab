@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3243906186514317707}
   - component: {fileID: 1324804953930206231}
   - component: {fileID: -7593560165982231900}
+  - component: {fileID: 6641787887047653572}
   m_Layer: 0
   m_Name: _GameManager
   m_TagString: Untagged
@@ -79,3 +80,16 @@ MonoBehaviour:
   sfxVolume: 1
   musicSlider: {fileID: 0}
   sfxSlider: {fileID: 0}
+--- !u!114 &6641787887047653572
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 376506074501706247}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e15ea70fc28c534295317c1dae46abd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fileName: data.game

@@ -1,3 +1,4 @@
+using DataPersistence;
 using Item.Grid;
 using Managers;
 using TMPro;
@@ -7,7 +8,7 @@ using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 
-public class GridUpgrade : MonoBehaviour, IPointerClickHandler
+public class GridUpgrade : MonoBehaviour, IPointerClickHandler, IDataPersistence
 {
     [SerializeField] private GameObject gridPrefab;
     
@@ -26,28 +27,58 @@ public class GridUpgrade : MonoBehaviour, IPointerClickHandler
     
     [SerializeField] private TextMeshProUGUI priceText;
     
-    private void Awake()
+    private void Start()
     {
         GameObject playerGrid = GameObject.FindWithTag("InventoryGrid");
-        if (playerGrid != null)
+        if (playerGrid == null) {
+            Debug.LogError("GridUpgrade could not find a GameObject with the tag 'InventoryGrid'!");
+            return;
+        }
+
+        _inventoryManager = playerGrid.GetComponent<InventoryManager>();
+        _inventoryParent = playerGrid.transform;
+    
+        // Safety check for the loaded tier
+        if (upgradeTier >= 0 && upgradeTier < upgradePath.Length)
         {
-            _inventoryManager = playerGrid.GetComponent<InventoryManager>();
-            _inventoryParent = playerGrid.transform;
-            
-            if (_inventoryParent.childCount == 0 && upgradeTier == 0)
-            {
-                UpdateInventory(upgradePath[upgradeTier]);
-            }
+            // Directly build the grid for the tier we currently own
+            UpdateInventory(upgradePath[upgradeTier]);
+        
+            // Populate it with any saved items
+            _inventoryManager.InstantiateSavedData();
+
+            // Update the price text to show the cost for the NEXT upgrade
+            UpdatePrice();
+        }
+        else
+        {
+            Debug.LogError($"Loaded an invalid upgradeTier ({upgradeTier})!");
         }
     }
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        if (upgradeTier < upgradePath.Length && GameManager.Instance.CanBuyItem(upgradePath[upgradeTier].price))
+        // The tier we WANT to buy is the one after our current one.
+        int nextTierIndex = upgradeTier + 1;
+
+        // Check if there is a next tier available to upgrade to.
+        if (nextTierIndex < upgradePath.Length)
         {
-            GameManager.Instance.RemoveCoins(upgradePath[upgradeTier].price);
-            UpdateInventory(upgradePath[upgradeTier]);
-            //TODO: inserir som próprio
+            // Check if we can afford the price of the NEXT tier.
+            if (GameManager.Instance.CanBuyItem(upgradePath[nextTierIndex].price))
+            {
+                // 1. Pay the price for the NEXT tier.
+                GameManager.Instance.RemoveCoins(upgradePath[nextTierIndex].price);
+            
+                // 2. Build the grid for the NEXT tier.
+                UpdateInventory(upgradePath[nextTierIndex]);
+            
+                // 3. Our new current tier IS the next tier.
+                upgradeTier = nextTierIndex;
+            
+                // 4. Update the price text for the new "next" tier.
+                UpdatePrice();
+            }
         }
     }
     
@@ -62,19 +93,31 @@ public class GridUpgrade : MonoBehaviour, IPointerClickHandler
             GameObject newItem = Instantiate(gridPrefab, _inventoryParent);
         }
         _inventoryManager.RefreshSlots();
-        upgradeTier++;
-        UpdatePrice();
     }
 
     private void UpdatePrice()
     {
-        if (upgradeTier < upgradePath.Length)
+        // The price to show is for the tier AFTER our current one.
+        int nextTierIndex = upgradeTier + 1;
+
+        if (nextTierIndex < upgradePath.Length)
         {
-            priceText.text = upgradePath[upgradeTier].price.ToString();
+            priceText.text = upgradePath[nextTierIndex].price.ToString();
         }
         else
         {
+            // If there are no more upgrades, show "MAX".
             priceText.text = "MAX";
         }
+    }
+
+    public void LoadData(GameData data)
+    {
+        this.upgradeTier = data.currentGridTier;
+    }
+
+    public void SaveData(ref GameData data)
+    {
+        data.currentGridTier = upgradeTier;
     }
 }
