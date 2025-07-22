@@ -12,5 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 613afeaf8abfdf04a94ac893469bd41e, type: 3}
   m_Name: Pedido 2-6
   m_EditorClassIdentifier: 
-  value: 0
-  pedidos: []
+  value: 14
+  pedidos:
+  - ingredient: {fileID: 11400000, guid: 2310a739ff5a03342a204096f0433437, type: 2}
+    quantity: 1

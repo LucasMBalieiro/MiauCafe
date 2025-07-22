@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: Bolo T1
   m_EditorClassIdentifier: 
   tier: 1
-  sprite: {fileID: 7459690966206959908, guid: 7a88b93482cb008488d38203fb8cb53a, type: 3}
+  sprite: {fileID: 1142522003653597954, guid: 56c59b264cca52742b8ddc215e791b6f, type: 3}
   ingredientType: 2
+  cost: 0
