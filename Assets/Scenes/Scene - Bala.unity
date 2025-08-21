@@ -2438,6 +2438,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: _GameManager
       objectReference: {fileID: 0}
+    - target: {fileID: 1324804953930206231, guid: c7a7c8de03224d6498d517f4c810393d, type: 3}
+      propertyPath: coins
+      value: 300
+      objectReference: {fileID: 0}
     - target: {fileID: 3243906186514317707, guid: c7a7c8de03224d6498d517f4c810393d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -3915,7 +3919,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: c35bb5a46eb85b540b8716dc49d94211, type: 3}
+  m_Sprite: {fileID: 5174335441413946888, guid: c27ff9255798b3f4eaa76afbdbf44adf, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
