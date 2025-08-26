@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: T1MaquinaSorvete
   m_EditorClassIdentifier: 
   tier: 1
-  sprite: {fileID: -5069006934401713915, guid: e515c3cd1a8d79b4a854389d4e2c2c13, type: 3}
+  sprite: {fileID: 21300000, guid: 6b84cd6b78e6526479be9436f7a85801, type: 3}
   machineType: 1
   cost: 0
   cooldown: 5

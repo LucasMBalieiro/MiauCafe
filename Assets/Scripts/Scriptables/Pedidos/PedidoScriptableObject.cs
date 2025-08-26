@@ -13,6 +13,7 @@ public class PedidoScriptableObject : ScriptableObject
 {
     
     public int value;
+    public float timer;
     [SerializeField] public PedidoBase[] pedidos;
     
 }

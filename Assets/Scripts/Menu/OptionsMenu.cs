@@ -52,6 +52,6 @@ public class OptionsMenu : MonoBehaviour, IDataPersistence
 
     public void BackButton()
     {
-        //Only save SFX and Music outside of normal save
+        SoundManager.Instance.PlaySFX("Button");
     }
 }

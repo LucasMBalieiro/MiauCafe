@@ -59,6 +59,7 @@ public class PauseMenu : MonoBehaviour
 
     public void PauseGame()
     {
+        SoundManager.Instance.PlaySFX("Button");
         isPaused = true;
         Time.timeScale = 0;
         pauseMenu.SetActive(true);
@@ -71,6 +72,7 @@ public class PauseMenu : MonoBehaviour
 
     public void ResumeGame()
     {
+        SoundManager.Instance.PlaySFX("Button");
         isPaused = false;
         Time.timeScale = 1;
         pauseMenu.SetActive(false);
@@ -83,6 +85,7 @@ public class PauseMenu : MonoBehaviour
 
     public void NextLevel()
     {
+        SoundManager.Instance.PlaySFX("Button");
         Time.timeScale = 1;
         GameManager.Instance.ChangeDay();
         if (GameManager.Instance.GetCurrentDay() <= 3)
@@ -97,7 +100,13 @@ public class PauseMenu : MonoBehaviour
 
     public void BackToMainMenu()
     {
+        SoundManager.Instance.PlaySFX("Button");
         Time.timeScale = 1;
         SceneManager.LoadScene("MainMenu - Bala");
+    }
+
+    public void PlaySound()
+    {
+        SoundManager.Instance.PlaySFX("Button");
     }
 }

@@ -22,19 +22,27 @@ public class MainMenuController : MonoBehaviour, IDataPersistence
         GameData.SetActive(hasSaveData);
     }
 
+    public void PlaySound()
+    {
+        SoundManager.Instance.PlaySFX("Button");
+    }
+
     public void NewGame()
     {
+        SoundManager.Instance.PlaySFX("Button");
         DataPersistenceManager.Instance.NewGame();
         SceneManager.LoadScene("Scene - Bala");
     }
 
     public void LoadGame()
     {
+        SoundManager.Instance.PlaySFX("Button");
         SceneManager.LoadScene("Scene - Bala");
     }
 
     public void QuitGame()
     {
+        SoundManager.Instance.PlaySFX("Button");
         Application.Quit();
     }
 

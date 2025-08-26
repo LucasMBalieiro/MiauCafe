@@ -41,6 +41,7 @@ public class CatController : MonoBehaviour
         _positionIndex = currentPositionIndex;
         _spawnController = spawner;
         _dropSlot = _gridObject.GetComponent<PedidoDropSlot>();
+        _dropSlot.SetTimer(pedidos.timer);
         
         SetupPedidos();
         CreatePedidoUI();
@@ -77,11 +78,16 @@ public class CatController : MonoBehaviour
         }
         
         
-        _dropSlot.SetBackgroundActive(true);
+        _dropSlot.SetBackgroundActive(false);
         _gridObject.gameObject.SetActive(false);
     }
     
-    private void ShowPedidoUI() => _gridObject.gameObject.SetActive(true);
+    private void ShowPedidoUI() 
+    {
+        _dropSlot.SetBackgroundActive(true);
+        _gridObject.gameObject.SetActive(true);
+        _dropSlot.StartTimer();
+    }
     
     public bool DeliverItem(BaseItemScriptableObject deliveredItem)
     {
@@ -125,6 +131,22 @@ public class CatController : MonoBehaviour
         _spawnController.FreeUpPosition(_positionIndex);
         _dropSlot.SetBackgroundActive(false);
         GameManager.Instance.AddCoins(pedidos.value);
+        
+        Destroy(gameObject);
+    }
+
+    public void FailRequestAndLeave()
+    {
+        pedidoDicionario.Clear();
+
+        foreach (Transform pedidoDisplay in _gridObject)
+        {
+            Destroy(pedidoDisplay.gameObject);
+        }
+        
+        SoundManager.Instance.PlaySFX("Deny");
+        _spawnController.FreeUpPosition(_positionIndex);
+        _dropSlot.SetBackgroundActive(false);
         
         Destroy(gameObject);
     }

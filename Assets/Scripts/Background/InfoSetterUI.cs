@@ -32,6 +32,6 @@ public class InfoSetterUI : MonoBehaviour
 
     private void UpdateDayDisplay(int value)
     {
-        dayCounter.text = "Dia - " + value.ToString();
+        dayCounter.text = "Day - " + value.ToString();
     }
 }

@@ -16,6 +16,12 @@ public class GameData
     public List<int> inventoryItemTiers;
     public List<int> inventoryItemPositions;
     
+    //Quantidade das maquinas
+    public int numCoffeeMachines;
+    public int numIceCreamMachines;
+    public int numCakeMachines;
+    public int numBreadMachines;
+    
     //Som
     public float SFXVolume;
     public float MusicVolume;
@@ -26,10 +32,17 @@ public class GameData
         currentCoins = 0;
         currentGridTier = 0;
         isFirstMachine = true;
+        
         inventoryItemCategories = new List<ItemCategory>();
         inventoryItemTypeIDs = new List<int>();
         inventoryItemTiers = new List<int>();
         inventoryItemPositions = new List<int>();
+        
+        numCoffeeMachines = 0;
+        numIceCreamMachines = 0;
+        numCakeMachines = 0;
+        numBreadMachines = 0;
+        
         SFXVolume = 1;
         MusicVolume = 1;
     }

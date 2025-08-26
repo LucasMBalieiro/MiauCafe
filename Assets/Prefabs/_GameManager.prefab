@@ -51,6 +51,7 @@ MonoBehaviour:
   coins: 0
   currentDay: 0
   daySpawnerData: {fileID: 11400000, guid: bdc6d42c1257abc488aafcc02ebc7af0, type: 2}
+  maxNumberMachines: {fileID: 11400000, guid: 5dd2215d8bff5264f8398a3e20ccb19f, type: 2}
 --- !u!114 &-7593560165982231900
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -77,7 +78,25 @@ MonoBehaviour:
   - {fileID: 8300000, guid: f72cedbed67633b4d9d53c006985e898, type: 3}
   - {fileID: 8300000, guid: 34112ec6ac0e81b46bdbd4d105f500e3, type: 3}
   - {fileID: 8300000, guid: e0c0fda02b6b29343981fbf18f12ccc1, type: 3}
+  - {fileID: 8300000, guid: 201f96e3bd36b014d8713253932a272f, type: 3}
   sfxVolume: 1
+  meowSounds:
+  - {fileID: 8300000, guid: b8a64f6d518475c478593d16ac5aed4c, type: 3}
+  - {fileID: 8300000, guid: ffbd10bb7c5337344ae3c850addea263, type: 3}
+  - {fileID: 8300000, guid: f3c544623ecaee5419e74838e274e58a, type: 3}
+  - {fileID: 8300000, guid: f510341e6d8d3ec41a5609f3a86504d6, type: 3}
+  - {fileID: 8300000, guid: 37a72f0fa00304248885feb700e4b3c7, type: 3}
+  - {fileID: 8300000, guid: e565da63a83bfab48854862aaf4817f6, type: 3}
+  - {fileID: 8300000, guid: d1bdddf75a79c6d48a18b5092d815c61, type: 3}
+  - {fileID: 8300000, guid: 8331c13edac35a7419c94a311162a1b0, type: 3}
+  - {fileID: 8300000, guid: a7da2a1f1ba33774b8b06a66f865c69f, type: 3}
+  - {fileID: 8300000, guid: ef04601ed8b0ff743a4a3b07ff9bdda2, type: 3}
+  - {fileID: 8300000, guid: 6abd9e73c6a631645a2d3e9b01cf4b6d, type: 3}
+  - {fileID: 8300000, guid: 802c818dfc2113e4db814b3cf60cbbb2, type: 3}
+  - {fileID: 8300000, guid: 1eaf8f63908f8ae4eb242635b2ac8579, type: 3}
+  - {fileID: 8300000, guid: c60215f87e1f02a4e9a7c2c421e969d3, type: 3}
+  - {fileID: 8300000, guid: d8bd02b4a198b3042b056e6a148f28e3, type: 3}
+  - {fileID: 8300000, guid: a04e5000f7c504e49a9c630bab76dec0, type: 3}
 --- !u!114 &6641787887047653572
 MonoBehaviour:
   m_ObjectHideFlags: 0

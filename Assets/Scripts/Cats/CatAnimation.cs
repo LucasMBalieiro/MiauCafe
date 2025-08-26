@@ -80,6 +80,7 @@ public class CatAnimation : MonoBehaviour
     {
         currentState = State.Talking;
         animator.SetTrigger(StartTalk);
+        SoundManager.Instance.PlayRandomMeow();
         
         yield return new WaitForSeconds(talkTime);
         OnEndTalk.Invoke();
@@ -93,6 +94,7 @@ public class CatAnimation : MonoBehaviour
         midPosition = midPoint;
         endPosition = endPoint;
         
+        SoundManager.Instance.PlaySFX("Door");
         currentState = State.MoveToMid;
         currentTarget = midPosition;
     }

@@ -15,6 +15,8 @@ public class SoundManager : MonoBehaviour, IDataPersistence
     [Header("Efeitos Sonoros")]
     [SerializeField] private AudioClip[] soundEffects;
     [SerializeField][Range(0f, 1f)] public float sfxVolume = 1f;
+    
+    [SerializeField] private AudioClip[] meowSounds;
 
     private AudioSource musicSource;
     private List<AudioSource> sfxSources = new List<AudioSource>();
@@ -96,6 +98,13 @@ public class SoundManager : MonoBehaviour, IDataPersistence
         {
             Debug.LogWarning($"SFX não encontrado: {soundName}");
         }
+    }
+
+    public void PlayRandomMeow()
+    {
+        AudioClip meow = meowSounds[Random.Range(0, meowSounds.Length)];
+        AudioSource source = GetAvailableSFXSource();
+        source.PlayOneShot(meow, sfxVolume);
     }
 
     private AudioSource GetAvailableSFXSource()
