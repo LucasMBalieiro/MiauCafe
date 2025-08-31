@@ -73,6 +73,8 @@ namespace Managers
         
         public int GetCurrentDay() => currentDay;
         
+        public int GetMaxNumberDay() => daySpawnerData.days.Length;
+        
         public Day GetCurrentDayData()
         {
             if (daySpawnerData != null && currentDay < daySpawnerData.days.Length)
@@ -111,7 +113,7 @@ namespace Managers
             {
                 MachineType.MaquinaCafe => maxNumberMachines.maxNumberMachinesPerDay[currentDay].maxCoffeeMachine,
                 MachineType.MaquinaSorvete => maxNumberMachines.maxNumberMachinesPerDay[currentDay].maxIceCreamMachine,
-                MachineType.MaquinaBolo => maxNumberMachines.maxNumberMachinesPerDay[currentDay].maxBreadMachine,
+                MachineType.MaquinaBolo => maxNumberMachines.maxNumberMachinesPerDay[currentDay].maxCakeMachine,
                 MachineType.MaquinaPao => maxNumberMachines.maxNumberMachinesPerDay[currentDay].maxBreadMachine,
                 _ => -1
             };

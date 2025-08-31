@@ -13,7 +13,7 @@ public class MachineShop : MonoBehaviour, IPointerClickHandler, IPointerEnterHan
 {
     
     [SerializeField] private BaseItemScriptableObject machine;
-    [SerializeField] private int price;
+    [SerializeField] private int[] price;
     
     [SerializeField] private TextMeshProUGUI priceText;
     [SerializeField] private TextMeshProUGUI quantityText;
@@ -25,6 +25,8 @@ public class MachineShop : MonoBehaviour, IPointerClickHandler, IPointerEnterHan
     private int currentQuantity;
     private int maxQuantity;
     private bool isFirstMachine;
+    
+    private int priceListQuantity;
     
     private Coroutine _hoverCoroutine;
 
@@ -40,8 +42,8 @@ public class MachineShop : MonoBehaviour, IPointerClickHandler, IPointerEnterHan
         
         gameManager = GameManager.Instance;
         
-        SetPrice();
         SetQuantity();
+        SetPrice();
     }
 
     private void SetPrice()
@@ -52,7 +54,7 @@ public class MachineShop : MonoBehaviour, IPointerClickHandler, IPointerEnterHan
         }
         else
         {
-            priceText.text = price.ToString();
+            priceText.text = price[priceListQuantity].ToString();
         }
     }
 
@@ -60,6 +62,11 @@ public class MachineShop : MonoBehaviour, IPointerClickHandler, IPointerEnterHan
     {
         currentQuantity = gameManager.GetCurrentMachineQuantity(machineType);
         maxQuantity = gameManager.GetMaxMachineQuantity(machineType);
+
+        if (currentQuantity < price.Length)
+        {
+            priceListQuantity = currentQuantity;
+        }
         
         quantityText.text = currentQuantity.ToString() + "/" + maxQuantity.ToString();
     }
@@ -91,18 +98,19 @@ public class MachineShop : MonoBehaviour, IPointerClickHandler, IPointerEnterHan
             _playerInventory.AddItem(machine);
             SoundManager.Instance.PlaySFX("Shop_Purchase");
             
-            priceText.text = price.ToString();
             SetQuantity();
+            SetPrice();
             return;
         }
 
-        if (currentQuantity < maxQuantity && gameManager.CanBuyItem(price) && _playerInventory.HasEmptySlot())
+        if (currentQuantity < maxQuantity && gameManager.CanBuyItem(price[priceListQuantity]) && _playerInventory.HasEmptySlot())
         {
             gameManager.AddMachineQuantity(machineType);
             _playerInventory.AddItem(machine);
-            gameManager.RemoveCoins(price);
+            gameManager.RemoveCoins(price[priceListQuantity]);
             SoundManager.Instance.PlaySFX("Shop_Purchase");
             SetQuantity();
+            SetPrice();
         }
     }
 

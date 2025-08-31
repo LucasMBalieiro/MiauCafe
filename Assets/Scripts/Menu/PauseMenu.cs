@@ -88,7 +88,7 @@ public class PauseMenu : MonoBehaviour
         SoundManager.Instance.PlaySFX("Button");
         Time.timeScale = 1;
         GameManager.Instance.ChangeDay();
-        if (GameManager.Instance.GetCurrentDay() < 3)
+        if (GameManager.Instance.GetCurrentDay() < GameManager.Instance.GetMaxNumberDay())
         {
             SceneManager.LoadScene("Scene - Bala"); 
         }
