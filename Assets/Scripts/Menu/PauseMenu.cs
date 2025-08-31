@@ -88,13 +88,13 @@ public class PauseMenu : MonoBehaviour
         SoundManager.Instance.PlaySFX("Button");
         Time.timeScale = 1;
         GameManager.Instance.ChangeDay();
-        if (GameManager.Instance.GetCurrentDay() <= 3)
+        if (GameManager.Instance.GetCurrentDay() < 3)
         {
             SceneManager.LoadScene("Scene - Bala"); 
         }
         else
         {
-            SceneManager.LoadScene("MainMenu - Bala"); //TODO: fazer cena final
+            Debug.Log("Não tem mais dias, colocar cena final do cachorro");
         }
     }
 

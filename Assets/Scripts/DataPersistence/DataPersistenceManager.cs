@@ -47,11 +47,7 @@ namespace DataPersistence
         
         public void OnSceneLoaded(Scene scene, LoadSceneMode mode)
         {
-            // TODO: gambiarra do krl isso, melhor generalizar no futuro
-            if (scene.name == "Scene - Bala" || scene.name == "MainMenu - Bala")
-            {
-                this.LoadGame();
-            }
+            LoadGame();
         }
         
         public bool HasSaveData()

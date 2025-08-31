@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu - Bala.unity
     guid: 7216f9f53f198064095c6467fae5392c
   - enabled: 1
+    path: Assets/Scenes/Tutorial - FINAL.unity
+    guid: 21476a4c735480644a867a0b41d1613a
+  - enabled: 1
     path: Assets/Scenes/Scene - Bala.unity
     guid: d0cd55c540b0ec34f8365f96349b5091
   m_configObjects:

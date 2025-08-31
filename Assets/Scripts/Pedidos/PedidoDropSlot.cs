@@ -41,9 +41,17 @@ public class PedidoDropSlot : MonoBehaviour, IDropHandler
         timerPedidoText.text = Mathf.RoundToInt(timerPedido).ToString();
     }
 
+    // Se o tempo do pedido for -1, não inicializa a corrotina (PARA O TUTORIAL)
     public void StartTimer()
     {
-        _timerCoroutine = StartCoroutine(TimerCoroutine());
+        if (timer > -1)
+        {
+            _timerCoroutine = StartCoroutine(TimerCoroutine());
+        }
+        else
+        {
+            timerPedidoText.enabled = false;
+        }
     }
     
     private IEnumerator TimerCoroutine()

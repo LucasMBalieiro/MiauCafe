@@ -21,6 +21,8 @@ namespace Managers
         [SerializeField] private DaySpawnerScriptableObject daySpawnerData;
         [SerializeField] private MaxNumberMachines maxNumberMachines;
         
+        
+        
         private int currentNumCoffeeMachines;
         private int currentNumIceCreamMachines;
         private int currentNumCakeMachines;

@@ -1,6 +1,7 @@
 using System;
 using DataPersistence;
 using TMPro;
+using UnityEditor.Recorder;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -11,6 +12,10 @@ public class MainMenuController : MonoBehaviour, IDataPersistence
     [SerializeField] private TextMeshProUGUI dayText;
     [SerializeField] private TextMeshProUGUI coinsText;
     [SerializeField] private Button loadButton;
+    
+    [SerializeField] private Image background;
+    [SerializeField] private Sprite optionsMenuImage;
+    
     
     private int _day;
     private int _coins;
@@ -29,21 +34,23 @@ public class MainMenuController : MonoBehaviour, IDataPersistence
 
     public void NewGame()
     {
-        SoundManager.Instance.PlaySFX("Button");
         DataPersistenceManager.Instance.NewGame();
-        SceneManager.LoadScene("Scene - Bala");
+        SceneManager.LoadScene("Tutorial - FINAL");
     }
 
     public void LoadGame()
     {
-        SoundManager.Instance.PlaySFX("Button");
         SceneManager.LoadScene("Scene - Bala");
     }
 
     public void QuitGame()
     {
-        SoundManager.Instance.PlaySFX("Button");
         Application.Quit();
+    }
+
+    public void ChangeBackground()
+    {
+        background.sprite = optionsMenuImage;
     }
 
     private void UpdateUI()

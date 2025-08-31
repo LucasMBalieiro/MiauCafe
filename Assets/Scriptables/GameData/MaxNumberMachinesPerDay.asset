@@ -13,15 +13,15 @@ MonoBehaviour:
   m_Name: MaxNumberMachinesPerDay
   m_EditorClassIdentifier: 
   maxNumberMachinesPerDay:
+  - maxCoffeeMachine: 1
+    maxIceCreamMachine: 0
+    maxCakeMachine: 0
+    maxBreadMachine: 0
   - maxCoffeeMachine: 2
     maxIceCreamMachine: 1
     maxCakeMachine: 0
     maxBreadMachine: 0
   - maxCoffeeMachine: 4
-    maxIceCreamMachine: 2
-    maxCakeMachine: 1
-    maxBreadMachine: 2
-  - maxCoffeeMachine: 8
-    maxIceCreamMachine: 8
-    maxCakeMachine: 8
-    maxBreadMachine: 8
+    maxIceCreamMachine: 4
+    maxCakeMachine: 4
+    maxBreadMachine: 4

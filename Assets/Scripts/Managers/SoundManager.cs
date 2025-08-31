@@ -38,7 +38,6 @@ public class SoundManager : MonoBehaviour, IDataPersistence
         {
             clip.LoadAudioData();  //Força carregamento na memória
         }
-        // Configura música
         musicSource = gameObject.AddComponent<AudioSource>();
         musicSource.loop = true;
         musicSource.volume = musicVolume;
