@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: T2MaquinaPao 2
   m_EditorClassIdentifier: 
   tier: 2
-  sprite: {fileID: 8650554389654128564, guid: 65603da8af4d5c847952dfa9b06cf01f, type: 3}
+  sprite: {fileID: -398393545784048222, guid: 7bd937d27a027ca4db7f0c0d5a282b75, type: 3}
   machineType: 3
   cost: 0
   cooldown: 7

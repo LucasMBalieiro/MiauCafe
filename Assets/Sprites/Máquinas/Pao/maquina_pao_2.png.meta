@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 1755a4e14fa2c5044aa2439ac00852f7
+guid: dc7aef9d42b93d4458932f940e2db066
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1973432115866306506
-    second: iceCream_t2_0
+      213: 6847675949094250689
+    second: maquina_pao_2_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,8 +46,8 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
-  spriteExtrude: 2
+  spriteMode: 2
+  spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
@@ -96,40 +96,27 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: iceCream_t2_0
+      name: maquina_pao_2_0
       rect:
         serializedVersion: 2
-        x: 9
-        y: 1
-        width: 47
-        height: 60
+        x: 0
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 638f07142f5fc94e0800000000000000
-      internalID: -1973432115866306506
+      spriteID: 1c8afb2cef4d70f50800000000000000
+      internalID: 6847675949094250689
       vertices: []
       indices: 
       edges: []
@@ -138,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: d95b8981d25f95340b0cd6bc9aa9d5d3
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      iceCream_t2_0: -1973432115866306506
+      maquina_pao_2_0: 6847675949094250689
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

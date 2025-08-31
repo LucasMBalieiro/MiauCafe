@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: T1MaquinaPao 1
   m_EditorClassIdentifier: 
   tier: 1
-  sprite: {fileID: 8650554389654128564, guid: 65603da8af4d5c847952dfa9b06cf01f, type: 3}
+  sprite: {fileID: 6847675949094250689, guid: dc7aef9d42b93d4458932f940e2db066, type: 3}
   machineType: 3
   cost: 0
   cooldown: 6

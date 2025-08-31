@@ -9,13 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de568abd216ae39418a729e674042f84, type: 3}
-  m_Name: T3MaquinaPao 3
+  m_Script: {fileID: 11500000, guid: 613afeaf8abfdf04a94ac893469bd41e, type: 3}
+  m_Name: Pedido 3-1
   m_EditorClassIdentifier: 
-  tier: 3
-  sprite: {fileID: -1693442584419959863, guid: 4d01984715bd01548bcf9c897051a2d5, type: 3}
-  machineType: 3
-  cost: 0
-  cooldown: 6
-  maxCharges: 4
-  producesIngredientType: 3
+  value: 112
+  timer: 120
+  pedidos:
+  - ingredient: {fileID: 11400000, guid: 5a78c52fc553493469a4f0ad4c0c44d1, type: 2}
+    quantity: 8

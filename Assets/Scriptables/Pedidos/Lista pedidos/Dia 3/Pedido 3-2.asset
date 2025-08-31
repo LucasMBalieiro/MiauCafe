@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 613afeaf8abfdf04a94ac893469bd41e, type: 3}
+  m_Name: Pedido 3-2
+  m_EditorClassIdentifier: 
+  value: 365
+  timer: 300
+  pedidos:
+  - ingredient: {fileID: 11400000, guid: 5a54ae38d5765364bb2dc83ca72a724e, type: 2}
+    quantity: 1
+  - ingredient: {fileID: 11400000, guid: 7060d6907716e9e4e9a5aebcfd51d82f, type: 2}
+    quantity: 3
+  - ingredient: {fileID: 11400000, guid: 233af5a5d4c01f64bb05ae995f479640, type: 2}
+    quantity: 1
