@@ -111,6 +111,13 @@ namespace Item.General
 
             OnItemDropped?.Invoke(this, parentAfterDrag);
         }
+
+        public void SwitchParent(Transform newParent)
+        {
+            transform.SetParent(newParent);
+            parentAfterDrag = newParent;
+            OnItemDropped?.Invoke(this, parentAfterDrag);
+        }
     
         public void ReturnToPreviousPosition()
         {

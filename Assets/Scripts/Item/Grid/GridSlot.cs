@@ -13,10 +13,6 @@ namespace Item.Grid
         private void Awake()
         {
             _itemCombiner = GetComponent<ItemCombiner>();
-            if (_itemCombiner == null)
-            {
-                Debug.LogError("GridSlot requires an ItemCombiner component on itself or a parent!", this);
-            }
         }
     
         public void OnDrop(PointerEventData eventData)
@@ -31,9 +27,12 @@ namespace Item.Grid
             else
             {
                 var existingItem = transform.GetChild(0).GetComponent<DraggableItem>();
-            
-                if (!_itemCombiner.TryCombineItems(existingItem, droppedItem)) 
-                    droppedItem.ReturnToPreviousPosition();
+
+                if (!_itemCombiner.TryCombineItems(existingItem, droppedItem))
+                {
+                    existingItem.SwitchParent(droppedItem.previousParent);
+                    droppedItem.parentAfterDrag = transform;
+                }
             }
         }
 

@@ -75,6 +75,11 @@ public class PedidoDropSlot : MonoBehaviour, IDropHandler
     {
         DraggableItem droppedItem = eventData.pointerDrag.GetComponent<DraggableItem>();
 
+        if (_catController == null)
+        {
+            return;
+        }
+
 
         if (_catController.DeliverItem(droppedItem.ItemData))
         {
