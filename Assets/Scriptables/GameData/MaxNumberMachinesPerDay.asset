@@ -22,16 +22,16 @@ MonoBehaviour:
     maxCakeMachine: 0
     maxBreadMachine: 0
   - maxCoffeeMachine: 4
+    maxIceCreamMachine: 2
+    maxCakeMachine: 1
+    maxBreadMachine: 0
+  - maxCoffeeMachine: 8
     maxIceCreamMachine: 4
-    maxCakeMachine: 4
-    maxBreadMachine: 4
-  - maxCoffeeMachine: 4
-    maxIceCreamMachine: 4
-    maxCakeMachine: 4
-    maxBreadMachine: 4
-  - maxCoffeeMachine: 4
-    maxIceCreamMachine: 4
-    maxCakeMachine: 4
+    maxCakeMachine: 2
+    maxBreadMachine: 1
+  - maxCoffeeMachine: 16
+    maxIceCreamMachine: 8
+    maxCakeMachine: 6
     maxBreadMachine: 4
   - maxCoffeeMachine: 4
     maxIceCreamMachine: 4

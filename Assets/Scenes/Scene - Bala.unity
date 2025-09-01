@@ -4480,7 +4480,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   machine: {fileID: 11400000, guid: 8eaf036cf51d424469d17a9cc060b597, type: 2}
-  price: 0a000000140000001e00000028000000
+  price: 320000004b0000006400000096000000
   priceText: {fileID: 561492837}
   quantityText: {fileID: 1579165280}
   hoverTip: {fileID: 457162895}
@@ -4968,7 +4968,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   machine: {fileID: 11400000, guid: 94c611b1491454f449354534a63fc607, type: 2}
-  price: 0a000000140000001e00000028000000
+  price: 96000000dc0000002c01000090010000
   priceText: {fileID: 1165245115}
   quantityText: {fileID: 1633598213}
   hoverTip: {fileID: 1885778996}
@@ -6154,7 +6154,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   machine: {fileID: 11400000, guid: b23a7cb9092548b429a433ae33af001b, type: 2}
-  price: 050000000a000000
+  price: c80000002c01000090010000f4010000
   priceText: {fileID: 80825170}
   quantityText: {fileID: 1577818813}
   hoverTip: {fileID: 451555421}
@@ -9065,7 +9065,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   machine: {fileID: 11400000, guid: 68cc0e50b7f04f24fac6a797d6c285d7, type: 2}
-  price: 14000000140000001400000014000000
+  price: 6400000096000000c8000000fa000000
   priceText: {fileID: 1607480201}
   quantityText: {fileID: 1629153809}
   hoverTip: {fileID: 1793471521}

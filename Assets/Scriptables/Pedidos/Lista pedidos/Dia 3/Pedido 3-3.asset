@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Pedido 3-3
   m_EditorClassIdentifier: 
   value: 360
-  timer: 240
+  timer: 180
   pedidos:
   - ingredient: {fileID: 11400000, guid: 88021e298ba531c4aac1ea01b03c8027, type: 2}
     quantity: 3
