@@ -23,12 +23,15 @@ public class TutorialSetter : MonoBehaviour
     //Limitar clicks na tela
     [SerializeField] private float tutorialStartTime;
     [SerializeField] private Image tutorialStartImage;
+    [SerializeField] private DropItemTutorial dropItemTutorial;
     
-    //Mensagens
+    [Header("Mensagens")]
     [SerializeField] private GameObject FirstMessage;
     [SerializeField] private GameObject SecondMessage;
     [SerializeField] private GameObject ThirdMessage;
     [SerializeField] private GameObject FourthMessage;
+    [SerializeField] private GameObject FifthMessage;
+    [SerializeField] private GameObject SixthMessage;
     
     
     private bool isClickableSecondMessage = true;
@@ -110,7 +113,22 @@ public class TutorialSetter : MonoBehaviour
         {
             isClickableFourthMessage = false;
             FourthMessage.SetActive(false);
+            FifthMessage.SetActive(true);
+            
+            dropItemTutorial.onDropped.AddListener(DropItemTutorial);
+            dropItemTutorial.finalOrder.AddListener(FinalOrderTutorial);
         }
+    }
+
+    private void DropItemTutorial()
+    {
+        FifthMessage.SetActive(false);
+        SixthMessage.SetActive(true);
+    }
+
+    private void FinalOrderTutorial()
+    {
+        SixthMessage.SetActive(false);
     }
 
     private void GetGridSlot()
