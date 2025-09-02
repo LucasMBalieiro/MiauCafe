@@ -41,6 +41,7 @@ public class PauseMenu : MonoBehaviour
             }
             else
             {
+                isPaused = false;
                 ResumeGame();
             }
         }
@@ -102,7 +103,7 @@ public class PauseMenu : MonoBehaviour
     {
         SoundManager.Instance.PlaySFX("Button");
         Time.timeScale = 1;
-        SceneManager.LoadScene("MainMenu - Bala");
+        SceneManager.LoadScene("Main Menu - FINAL");
     }
 
     public void PlaySound()

@@ -35,7 +35,7 @@ public class MainMenuController : MonoBehaviour, IDataPersistence
     public void NewGame()
     {
         DataPersistenceManager.Instance.NewGame();
-        SceneManager.LoadScene("Tutorial - FINAL");
+        SceneManager.LoadScene("Intro Scene - FINAL");
     }
 
     public void LoadGame()

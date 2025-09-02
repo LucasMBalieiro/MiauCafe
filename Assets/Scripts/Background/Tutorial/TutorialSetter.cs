@@ -128,6 +128,11 @@ public class TutorialSetter : MonoBehaviour
 
     private void FinalOrderTutorial()
     {
+        FifthMessage.SetActive(false);
+        SecondMessage.SetActive(false);
+        ThirdMessage.SetActive(false);
+        FourthMessage.SetActive(false);
+        FifthMessage.SetActive(false);
         SixthMessage.SetActive(false);
     }
 
