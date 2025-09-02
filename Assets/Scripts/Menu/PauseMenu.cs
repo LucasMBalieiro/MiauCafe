@@ -12,7 +12,7 @@ public class PauseMenu : MonoBehaviour
     [SerializeField]private GameObject[] hudElements;
     private bool isPaused = false;
     
-    [SerializeField] private SpawnPositionController spawner;
+    [SerializeField] private bool canPauseOnKey = true;
     
     private void Start()
     {
@@ -33,7 +33,7 @@ public class PauseMenu : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) && canPauseOnKey)
         {
             if (!isPaused)
             {
@@ -95,7 +95,7 @@ public class PauseMenu : MonoBehaviour
         }
         else
         {
-            Debug.Log("Não tem mais dias, colocar cena final do cachorro");
+            SceneManager.LoadScene("Final Scene - FINAL"); 
         }
     }
 

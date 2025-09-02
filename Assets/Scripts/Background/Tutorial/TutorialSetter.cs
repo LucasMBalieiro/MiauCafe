@@ -15,10 +15,6 @@ public class TutorialSetter : MonoBehaviour
     private GameObject firstGridSlot;
     private NextStepTutorial nextStepTutorial;
     
-    //DEBUG
-    private float timer = 0f;
-    [SerializeField] private TMP_Text tutorialText;
-    
     
     //Limitar clicks na tela
     [SerializeField] private float tutorialStartTime;
@@ -41,13 +37,6 @@ public class TutorialSetter : MonoBehaviour
     private void Start()
     {
         tutorialCoroutine = StartCoroutine(TutorialStart());
-    }
-
-    private void Update()
-    {
-        timer += Time.deltaTime;
-        
-        tutorialText.text = timer.ToString("00.00");
     }
 
     private IEnumerator TutorialStart()

@@ -8,6 +8,9 @@ public class OptionsMenu : MonoBehaviour, IDataPersistence
     [SerializeField] private CircularSlider SFXVolumeSlider;
     [SerializeField] private CircularSlider MusicVolumeSlider;
     
+    [SerializeField] private Slider MusicVolumeNormalSlider;
+    [SerializeField] private Slider SFXVolumeNormalSlider;
+    
     [SerializeField] private Image background;
     [SerializeField] private Sprite mainMenuImage;
     
@@ -34,7 +37,7 @@ public class OptionsMenu : MonoBehaviour, IDataPersistence
     
     public void BackButton()
     {
-        background.sprite = mainMenuImage;
+        if (mainMenuImage != null) background.sprite = mainMenuImage;
     }
 
     public void PlaySound()
@@ -44,8 +47,18 @@ public class OptionsMenu : MonoBehaviour, IDataPersistence
 
     private void ApplySettings()
     {
-        MusicVolumeSlider.sliderValue = _MusicVolume;
-        SFXVolumeSlider.sliderValue = _SFXVolume;
+        if (SFXVolumeSlider != null && MusicVolumeSlider != null)
+        {
+            SFXVolumeSlider.sliderValue = _SFXVolume;
+            MusicVolumeSlider.sliderValue = _MusicVolume;
+        }
+        else
+        {
+            SFXVolumeNormalSlider.value = _SFXVolume;
+            MusicVolumeNormalSlider.value = _MusicVolume;
+        }
+        
+        
         
         SoundManager.Instance.SetMusicVolume(_MusicVolume);
         SoundManager.Instance.SetSFXVolume(_SFXVolume);

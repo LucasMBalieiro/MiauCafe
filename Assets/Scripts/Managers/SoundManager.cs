@@ -106,6 +106,16 @@ public class SoundManager : MonoBehaviour, IDataPersistence
         source.PlayOneShot(meow, sfxVolume);
     }
 
+    public void ResumeMusic()
+    {
+        musicSource.UnPause();
+    }
+    
+    public void StopMusic()
+    {
+        musicSource.Pause();
+    }
+
     private AudioSource GetAvailableSFXSource()
     {
         foreach (AudioSource source in sfxSources)

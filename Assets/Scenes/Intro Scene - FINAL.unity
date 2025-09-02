@@ -755,7 +755,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -32}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1301363122
@@ -929,7 +929,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -32}
   m_SizeDelta: {x: 1920, y: 1250}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1324842228
@@ -1416,7 +1416,7 @@ MonoBehaviour:
   - {fileID: 1982661007}
   - {fileID: 1743138134}
   popOutContainer: {fileID: 1978906937}
-  scale: 1.25
+  scale: 1.7
   clickIconImage: {fileID: 2056053576}
   handSprite: {fileID: 21300000, guid: 3dc9ab0c3758f1147a496fa150de1022, type: 3}
   handClickSprite: {fileID: 21300000, guid: 6d4beca8710ceb6428eb7cfc53e2ffdd, type: 3}

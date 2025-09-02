@@ -110,6 +110,8 @@ public class CatController : MonoBehaviour
                 CompleteRequestAndLeave();
             }
             
+            SoundManager.Instance.PlaySFX("Ding");
+            
             return true;
         }
         else

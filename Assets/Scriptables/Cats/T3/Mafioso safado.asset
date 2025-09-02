@@ -15,7 +15,7 @@ MonoBehaviour:
   tier: 3
   headSprite: {fileID: 2623002692824626415, guid: 034d67accbf9b48499d0c80e15ad3294, type: 3}
   bodySprite: {fileID: 6129868573773642376, guid: bdd6f8eec54d576408b6c69b872ed401, type: 3}
-  lArmSprite: {fileID: 6056375768881165567, guid: a9b80b9554b63284ba2c3333227bf672, type: 3}
-  rArmSprite: {fileID: 6056375768881165567, guid: a9b80b9554b63284ba2c3333227bf672, type: 3}
+  lArmSprite: {fileID: 0}
+  rArmSprite: {fileID: 0}
   legsSprite: {fileID: -1799033539789087879, guid: 3779891a299e38b4194046e165430400, type: 3}
   tailSprite: {fileID: -7734733764306411733, guid: f0944b57515cada4aa903a5eaf615c22, type: 3}

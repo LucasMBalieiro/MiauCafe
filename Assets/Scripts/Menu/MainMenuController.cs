@@ -1,5 +1,6 @@
 using System;
 using DataPersistence;
+using Managers;
 using TMPro;
 using UnityEditor.Recorder;
 using UnityEngine;
@@ -23,8 +24,18 @@ public class MainMenuController : MonoBehaviour, IDataPersistence
     private void Start()
     {
         bool hasSaveData = DataPersistenceManager.Instance.HasSaveData();
-        loadButton.interactable = hasSaveData;
-        GameData.SetActive(hasSaveData);
+
+        if (hasSaveData && _day != 0)
+        {
+            loadButton.interactable = true;
+            GameData.SetActive(true);
+        }
+        else
+        {
+            loadButton.interactable = false;
+            GameData.SetActive(false);
+        }
+        
     }
 
     public void PlaySound()

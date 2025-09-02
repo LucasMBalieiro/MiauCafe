@@ -20,7 +20,11 @@ namespace DataPersistence
             Instance = this;
             DontDestroyOnLoad(gameObject);
             
-            this.fileDataHandler = new FileDataHandler(Application.persistentDataPath, fileName);
+            #if UNITY_WEBGL
+                        this.cloudDataHandler = new CloudDataHandler(Application.persistentDataPath, fileName);
+            #else
+                        this.fileDataHandler = new FileDataHandler(Application.persistentDataPath, fileName);
+            #endif
         }
         #endregion
     
@@ -29,6 +33,7 @@ namespace DataPersistence
         
         [SerializeField] private string fileName;
         private FileDataHandler fileDataHandler;
+        private CloudDataHandler cloudDataHandler;
         
         private bool isNewGame = false;
         
@@ -45,14 +50,21 @@ namespace DataPersistence
             SceneManager.sceneLoaded -= OnSceneLoaded;
         }
         
-        public void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+        private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
         {
-            LoadGame();
+            if (scene.name is "Scene - Bala" or "Tutorial - FINAL" or "Main Menu - FINAL")
+            {
+                LoadGame();
+            }
         }
         
         public bool HasSaveData()
         {
-            return fileDataHandler != null && fileDataHandler.SaveFileExists();
+            #if UNITY_WEBGL
+                        return cloudDataHandler != null && cloudDataHandler.SaveFileExists();
+            #else
+                        return fileDataHandler != null && fileDataHandler.SaveFileExists();
+            #endif
         }
 
         public void NewGame()
@@ -70,7 +82,11 @@ namespace DataPersistence
             }
             else
             {
-                this.gameData = fileDataHandler.Load();
+                #if UNITY_WEBGL
+                    this.gameData = cloudDataHandler.Load();
+                #else
+                    this.gameData = fileDataHandler.Load();
+                #endif
             }
             if (this.gameData == null)
             {
@@ -86,12 +102,18 @@ namespace DataPersistence
 
         public void SaveGame()
         {
+            this.dataPersistenceObjects = FindAllDataPersistenceObjects();
+            
             foreach (IDataPersistence persistence in dataPersistenceObjects)
             {
                 persistence.SaveData(ref gameData);
             }
         
-            fileDataHandler.Save(gameData);
+            #if UNITY_WEBGL
+                        cloudDataHandler.Save(gameData);
+            #else
+                        fileDataHandler.Save(gameData);
+            #endif
         }
         
         private List<IDataPersistence> FindAllDataPersistenceObjects()

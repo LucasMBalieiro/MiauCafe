@@ -41,12 +41,13 @@ public class IntroMainScript : MonoBehaviour
         
         isAnimating = true;
         
-        fadeScreen.DOFade(0, 2f).SetEase(Ease.InQuint)
+        fadeScreen.DOFade(0, 2.2f).SetEase(Ease.InOutQuad)
             .OnComplete(() => {
             isAnimating = false;
             fadeScreen.gameObject.SetActive(false);
             
-            clickIconImage.DOFade(1, 1f).OnComplete(() =>
+            clickIconImage.DOFade(1, 1.5f).SetEase(Ease.InOutQuad)
+                .OnComplete(() =>
             {
                 _clickAnimationCoroutine = StartCoroutine(AnimateClickIcon());
             });
@@ -55,7 +56,6 @@ public class IntroMainScript : MonoBehaviour
     
     private void Update()
     {
-        // Only allow a click if no animation is currently playing
         if (Input.GetMouseButtonDown(0) && !isAnimating)
         {
             isAnimating = true;
@@ -69,61 +69,50 @@ public class IntroMainScript : MonoBehaviour
                 Image previousImage = previousTile.GetComponent<Image>();
                 RectTransform previousTransform = previousTile.GetComponent<RectTransform>();
 
-                // Return the previous tile to its original parent *before* animating it down
-                // Ensure originalParentOfCurrentTile is not null before using it
                 if (originalParentOfCurrentTile != null)
                 {
-                    previousTransform.SetParent(originalParentOfCurrentTile, true); // true maintains local position/scale
-                    previousTransform.SetAsLastSibling(); // Optional: Bring it to the top of its original parent
+                    previousTransform.SetParent(originalParentOfCurrentTile, true); 
+                    previousTransform.SetAsLastSibling();
                 }
                 
-                // Add the "fade back" and "shrink" animations to the sequence
                 mySequence.Append(previousImage.DOColor(originalColor, 0.5f));
                 mySequence.Join(previousTransform.DOScale(originalScale, 0.5f));
             }
 
-            // --- Step 2: Animate the CURRENT tile to pop ---
             if (counter < sketchTiles.Length)
             {
                 GameObject currentTile = sketchTiles[counter];
                 Image currentImage = currentTile.GetComponent<Image>();
                 RectTransform currentTransform = currentTile.GetComponent<RectTransform>();
 
-                // Store the original parent before changing it
                 originalParentOfCurrentTile = currentTransform.parent;
                 
-                // Reparent the current tile to the popOutContainer
-                currentTransform.SetParent(popOutContainer, true); // true maintains local position/scale
-                currentTransform.SetAsLastSibling(); // Bring it to the very front of the PopOutContainer
+                currentTransform.SetParent(popOutContainer, true);
+                currentTransform.SetAsLastSibling();
                 
-                // Use Join() to make this happen at the same time as the previous tile animates down
                 mySequence.Join(currentImage.DOColor(Color.white, 0.5f));
                 mySequence.Join(currentTransform.DOScale(popScale, 0.5f));
                 
-                // --- Step 3: Update state for the next click ---
-                previousTile = currentTile; // The current tile is now the "previous" one for the next click
+                previousTile = currentTile; 
                 counter++;
             }
             else if (previousTile != null)
             {
-                // Ensure the last animated tile goes back to its original parent
                 RectTransform previousTransform = previousTile.GetComponent<RectTransform>();
                 if (originalParentOfCurrentTile != null)
                 {
                     previousTransform.SetParent(originalParentOfCurrentTile, true);
                     previousTransform.SetAsLastSibling();
                 }
-                previousTile = null; // Clear previous tile reference
-                counter = 0; // Optional: Reset counter to loop through tiles again if needed
+                previousTile = null; 
+                counter = 0; 
             }
             
-            // --- Step 4: Unlock input AFTER the sequence is complete ---
             mySequence.OnComplete(() => {
                 isAnimating = false;
                 
                 if (counter >= sketchTiles.Length)
                 {
-                    // If all tiles have been shown, make the button appear
                     ShowNextSceneButton();
                 }
             });
@@ -150,7 +139,6 @@ public class IntroMainScript : MonoBehaviour
         }
         
         clickIconImage.gameObject.SetActive(false);
-        StopCoroutine(_clickAnimationCoroutine);
     }
 
     public void ContinueButton()

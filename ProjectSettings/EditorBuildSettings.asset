@@ -17,6 +17,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Scene - Bala.unity
     guid: d0cd55c540b0ec34f8365f96349b5091
+  - enabled: 1
+    path: Assets/Scenes/Final Scene - FINAL.unity
+    guid: e390e2d8605c35d4f81239eb0bd8b4ef
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

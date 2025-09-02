@@ -27,7 +27,7 @@ public class InfoSetterUI : MonoBehaviour
     
     private void UpdateCoinDisplay(int value)
     {
-        coinCounter.text = value.ToString() + " coins";
+        coinCounter.text = value.ToString() + " moedas";
     }
 
     private void UpdateDayDisplay(int value)
@@ -38,7 +38,7 @@ public class InfoSetterUI : MonoBehaviour
         }
         else
         {
-            dayCounter.text = "Day - " + value.ToString();
+            dayCounter.text = "Dia - " + value.ToString();
         }
     }
 }
