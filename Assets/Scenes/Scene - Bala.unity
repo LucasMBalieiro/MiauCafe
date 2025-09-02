@@ -5125,7 +5125,6 @@ MonoBehaviour:
   hudElements:
   - {fileID: 787347040}
   - {fileID: 415142100}
-  spawner: {fileID: 0}
   canPauseOnKey: 1
 --- !u!1 &1149836974
 GameObject:
@@ -6326,8 +6325,8 @@ MonoBehaviour:
   m_HandleRect: {fileID: 2136361203}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 10
-  m_WholeNumbers: 1
+  m_MaxValue: 1
+  m_WholeNumbers: 0
   m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -7525,8 +7524,8 @@ MonoBehaviour:
   m_HandleRect: {fileID: 2094427190}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 10
-  m_WholeNumbers: 1
+  m_MaxValue: 1
+  m_WholeNumbers: 0
   m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:

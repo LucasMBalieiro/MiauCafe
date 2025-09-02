@@ -5994,7 +5994,6 @@ MonoBehaviour:
   - {fileID: 787347040}
   - {fileID: 415142100}
   - {fileID: 1093080017}
-  spawner: {fileID: 1516542664}
   canPauseOnKey: 0
 --- !u!1 &1149836974
 GameObject:
@@ -7294,8 +7293,8 @@ MonoBehaviour:
   m_HandleRect: {fileID: 2136361203}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 10
-  m_WholeNumbers: 1
+  m_MaxValue: 1
+  m_WholeNumbers: 0
   m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -8662,8 +8661,8 @@ MonoBehaviour:
   m_HandleRect: {fileID: 2094427190}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 10
-  m_WholeNumbers: 1
+  m_MaxValue: 1
+  m_WholeNumbers: 0
   m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
