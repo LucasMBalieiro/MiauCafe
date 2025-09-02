@@ -1,0 +1,66 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa5d6fe8caaf02f4a8493b65c937ae5b, type: 3}
+  m_Name: DaySpawner
+  m_EditorClassIdentifier: 
+  days:
+  - clientList:
+    - baseCat: {fileID: 11400000, guid: b51dd071acf17944b8a2e4293984a8e7, type: 2}
+      pedidos: {fileID: 11400000, guid: 2e37735bee32bfb4a9ef844c84c24585, type: 2}
+  - clientList:
+    - baseCat: {fileID: 11400000, guid: cb3b2411612156f4084fc53de90b30ec, type: 2}
+      pedidos: {fileID: 11400000, guid: 20048b49378f453409a6d5f0aa5aa21c, type: 2}
+    - baseCat: {fileID: 11400000, guid: a8dc28b636f76b54fb13e3be2d0c37de, type: 2}
+      pedidos: {fileID: 11400000, guid: 2476ad08bef36f6438bef5f4271f9b81, type: 2}
+    - baseCat: {fileID: 11400000, guid: b51dd071acf17944b8a2e4293984a8e7, type: 2}
+      pedidos: {fileID: 11400000, guid: fd29f49b5c313514ab3728459373bf2f, type: 2}
+    - baseCat: {fileID: 11400000, guid: 77db1ce8a10edcf428eaeab191881a4d, type: 2}
+      pedidos: {fileID: 11400000, guid: 04cdda9a1d8f8834f893b8e5c9f4e5b4, type: 2}
+  - clientList:
+    - baseCat: {fileID: 11400000, guid: d8139f08266d83143aef7aa3b228f237, type: 2}
+      pedidos: {fileID: 11400000, guid: 7c040284dd8225b469de7dc6ded939f1, type: 2}
+    - baseCat: {fileID: 11400000, guid: 894d3900f7d1ae94198963bdd279f836, type: 2}
+      pedidos: {fileID: 11400000, guid: e059b8ab98c5d674386fcddb9b0f577f, type: 2}
+    - baseCat: {fileID: 11400000, guid: a8dc28b636f76b54fb13e3be2d0c37de, type: 2}
+      pedidos: {fileID: 11400000, guid: bc3401c35d6fc3d4d86f93f60eff335e, type: 2}
+    - baseCat: {fileID: 11400000, guid: 7d61598babf9f264fa1b23063d6762fc, type: 2}
+      pedidos: {fileID: 11400000, guid: 7f9d1b55d062b0e4a841c371552073ec, type: 2}
+    - baseCat: {fileID: 11400000, guid: 21f806e86fd9f6d4ea17e6a0f430c4f0, type: 2}
+      pedidos: {fileID: 11400000, guid: 2290e4e1488118143aef1ce2b4f8119b, type: 2}
+  - clientList:
+    - baseCat: {fileID: 11400000, guid: b51dd071acf17944b8a2e4293984a8e7, type: 2}
+      pedidos: {fileID: 11400000, guid: 4cfdc06471a1ee64d87eba9199accf4b, type: 2}
+    - baseCat: {fileID: 11400000, guid: 7d61598babf9f264fa1b23063d6762fc, type: 2}
+      pedidos: {fileID: 11400000, guid: c5caca6681aea3f40904bc2111071f38, type: 2}
+    - baseCat: {fileID: 11400000, guid: cb3b2411612156f4084fc53de90b30ec, type: 2}
+      pedidos: {fileID: 11400000, guid: 5c10d61062211c047ab04e95c5f33fda, type: 2}
+    - baseCat: {fileID: 11400000, guid: d8139f08266d83143aef7aa3b228f237, type: 2}
+      pedidos: {fileID: 11400000, guid: 39198fdc4f0a78f4b9d61910d1e0e09b, type: 2}
+    - baseCat: {fileID: 11400000, guid: 21f806e86fd9f6d4ea17e6a0f430c4f0, type: 2}
+      pedidos: {fileID: 11400000, guid: 618e5cd1edabac74f96e5a4d40b72b16, type: 2}
+    - baseCat: {fileID: 11400000, guid: 77db1ce8a10edcf428eaeab191881a4d, type: 2}
+      pedidos: {fileID: 11400000, guid: 46967385bb8f45f42b6a32e8166b9dbb, type: 2}
+  - clientList:
+    - baseCat: {fileID: 11400000, guid: cb3b2411612156f4084fc53de90b30ec, type: 2}
+      pedidos: {fileID: 11400000, guid: 9118afcf9739b66429b7b48dc613c508, type: 2}
+    - baseCat: {fileID: 11400000, guid: 7d61598babf9f264fa1b23063d6762fc, type: 2}
+      pedidos: {fileID: 11400000, guid: 8b4041645e7fa774dbd5f7ef2bbef008, type: 2}
+    - baseCat: {fileID: 11400000, guid: 894d3900f7d1ae94198963bdd279f836, type: 2}
+      pedidos: {fileID: 11400000, guid: dc5d5a7da10ddf04c95e920e31d6d789, type: 2}
+    - baseCat: {fileID: 11400000, guid: 77db1ce8a10edcf428eaeab191881a4d, type: 2}
+      pedidos: {fileID: 11400000, guid: 37ba371afa1018443b8b2a76049bd7a3, type: 2}
+    - baseCat: {fileID: 11400000, guid: 21f806e86fd9f6d4ea17e6a0f430c4f0, type: 2}
+      pedidos: {fileID: 11400000, guid: ca2078c2fd6aa144ca25c60533eb0665, type: 2}
+    - baseCat: {fileID: 11400000, guid: d8139f08266d83143aef7aa3b228f237, type: 2}
+      pedidos: {fileID: 11400000, guid: f352ce6675f808943b0fbcc6de1fe7c4, type: 2}
+    - baseCat: {fileID: 11400000, guid: a8dc28b636f76b54fb13e3be2d0c37de, type: 2}
+      pedidos: {fileID: 11400000, guid: 1e02d601c5d4bca46bf41d8afb35563d, type: 2}

@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67003e5b36a797e4184355b9f1edbdd8, type: 3}
+  m_Name: Flamenguista
+  m_EditorClassIdentifier: 
+  tier: 0
+  headSprite: {fileID: -6770407380493259334, guid: fa986da8473a2034da054aaa96f4a6f9, type: 3}
+  bodySprite: {fileID: -4004071008939613175, guid: b1e16d829d522c44b9704f98b8718b23, type: 3}
+  lArmSprite: {fileID: 5463578274255261021, guid: b39987ac5aae7fa40b239501ba32107c, type: 3}
+  rArmSprite: {fileID: -8274096020734665948, guid: 20a59454b8045ae459dd077c9caf28ce, type: 3}
+  legsSprite: {fileID: -6351037931392218152, guid: 95736a43b7d9acd4bbd20e2d98d2133d, type: 3}
+  tailSprite: {fileID: 851020613063469995, guid: 3c39fb7550526e4488a362411209b671, type: 3}

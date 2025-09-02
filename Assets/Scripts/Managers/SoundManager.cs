@@ -2,8 +2,9 @@ using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
 using System.Collections.Generic;
+using DataPersistence;
 
-public class SoundManager : MonoBehaviour
+public class SoundManager : MonoBehaviour, IDataPersistence
 {
     public static SoundManager Instance;
 
@@ -15,9 +16,7 @@ public class SoundManager : MonoBehaviour
     [SerializeField] private AudioClip[] soundEffects;
     [SerializeField][Range(0f, 1f)] public float sfxVolume = 1f;
     
-    [Header("Referências UI")]
-    [SerializeField] private Slider musicSlider;
-    [SerializeField] private Slider sfxSlider;
+    [SerializeField] private AudioClip[] meowSounds;
 
     private AudioSource musicSource;
     private List<AudioSource> sfxSources = new List<AudioSource>();
@@ -39,7 +38,6 @@ public class SoundManager : MonoBehaviour
         {
             clip.LoadAudioData();  //Força carregamento na memória
         }
-        // Configura música
         musicSource = gameObject.AddComponent<AudioSource>();
         musicSource.loop = true;
         musicSource.volume = musicVolume;
@@ -72,24 +70,19 @@ public class SoundManager : MonoBehaviour
 
     private void Start()
     {
+        SetSFXVolume(sfxVolume);
+        SetMusicVolume(musicVolume);
         musicSource.Play();
-        
-        if(musicSlider != null)
-        {
-            musicSlider.value = musicVolume;
-            musicSlider.onValueChanged.AddListener(SetMusicVolume);
-        }
-        
-        if(sfxSlider != null)
-        {
-            sfxSlider.value = sfxVolume;
-            sfxSlider.onValueChanged.AddListener(v => sfxVolume = v);
-        }
+    }
+    
+    public void SetSFXVolume(float volume)
+    {
+        sfxVolume = Mathf.Clamp01(volume);
     }
 
     public void SetMusicVolume(float volume)
     {
-        musicVolume = volume;
+        musicVolume = Mathf.Clamp01(volume);
         musicSource.volume = musicVolume;
     }
 
@@ -106,6 +99,23 @@ public class SoundManager : MonoBehaviour
         }
     }
 
+    public void PlayRandomMeow()
+    {
+        AudioClip meow = meowSounds[Random.Range(0, meowSounds.Length)];
+        AudioSource source = GetAvailableSFXSource();
+        source.PlayOneShot(meow, sfxVolume);
+    }
+
+    public void ResumeMusic()
+    {
+        musicSource.UnPause();
+    }
+    
+    public void StopMusic()
+    {
+        musicSource.Pause();
+    }
+
     private AudioSource GetAvailableSFXSource()
     {
         foreach (AudioSource source in sfxSources)
@@ -113,5 +123,15 @@ public class SoundManager : MonoBehaviour
             if (!source.isPlaying) return source;
         }
         return CreateNewSFXSource(); // Cria nova se todas ocupadas
+    }
+
+    public void LoadData(GameData data)
+    {
+        this.sfxVolume = data.SFXVolume;
+        this.musicVolume = data.MusicVolume;
+    }
+
+    public void SaveData(ref GameData data)
+    {
     }
 }

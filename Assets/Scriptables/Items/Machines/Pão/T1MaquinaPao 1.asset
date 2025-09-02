@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de568abd216ae39418a729e674042f84, type: 3}
+  m_Name: T1MaquinaPao 1
+  m_EditorClassIdentifier: 
+  tier: 1
+  sprite: {fileID: 6847675949094250689, guid: dc7aef9d42b93d4458932f940e2db066, type: 3}
+  machineType: 3
+  cost: 0
+  cooldown: 6
+  maxCharges: 2
+  producesIngredientType: 3

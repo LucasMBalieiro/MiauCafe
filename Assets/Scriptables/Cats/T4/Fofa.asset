@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67003e5b36a797e4184355b9f1edbdd8, type: 3}
+  m_Name: Fofa
+  m_EditorClassIdentifier: 
+  tier: 0
+  headSprite: {fileID: 5776442039742034087, guid: 6d6876b3b8820a242a1f3f59d730b885, type: 3}
+  bodySprite: {fileID: 3763977396895808989, guid: b916a10536f04c14dbf76fb368ddb129, type: 3}
+  lArmSprite: {fileID: 6699919268381228924, guid: bb9dd823a039f064aa3fbe359e434975, type: 3}
+  rArmSprite: {fileID: 9008208794931876201, guid: c7cc31a89c21efd4ba379bfb6c544911, type: 3}
+  legsSprite: {fileID: -2925304836448671874, guid: d163404bb6ff31044b2b0686e890d8d3, type: 3}
+  tailSprite: {fileID: -1246091517012184592, guid: 84884d08d0b971e42b292ef3ada68f46, type: 3}

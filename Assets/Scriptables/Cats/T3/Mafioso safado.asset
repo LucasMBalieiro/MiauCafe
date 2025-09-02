@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67003e5b36a797e4184355b9f1edbdd8, type: 3}
+  m_Name: Mafioso safado
+  m_EditorClassIdentifier: 
+  tier: 3
+  headSprite: {fileID: 2623002692824626415, guid: 034d67accbf9b48499d0c80e15ad3294, type: 3}
+  bodySprite: {fileID: 6129868573773642376, guid: bdd6f8eec54d576408b6c69b872ed401, type: 3}
+  lArmSprite: {fileID: 0}
+  rArmSprite: {fileID: 0}
+  legsSprite: {fileID: -1799033539789087879, guid: 3779891a299e38b4194046e165430400, type: 3}
+  tailSprite: {fileID: -7734733764306411733, guid: f0944b57515cada4aa903a5eaf615c22, type: 3}

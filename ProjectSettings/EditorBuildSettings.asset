@@ -6,11 +6,20 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/MainMenu - Bala.unity
-    guid: 7216f9f53f198064095c6467fae5392c
+    path: Assets/Scenes/Main Menu - FINAL.unity
+    guid: 9edd0f8155161a745963e532856a803c
+  - enabled: 1
+    path: Assets/Scenes/Intro Scene - FINAL.unity
+    guid: a1dfe8e31ecf10344bc38c572b5e7b36
+  - enabled: 1
+    path: Assets/Scenes/Tutorial - FINAL.unity
+    guid: 21476a4c735480644a867a0b41d1613a
   - enabled: 1
     path: Assets/Scenes/Scene - Bala.unity
     guid: d0cd55c540b0ec34f8365f96349b5091
+  - enabled: 1
+    path: Assets/Scenes/Final Scene - FINAL.unity
+    guid: e390e2d8605c35d4f81239eb0bd8b4ef
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

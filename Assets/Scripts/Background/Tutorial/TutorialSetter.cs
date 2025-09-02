@@ -1,0 +1,132 @@
+using System.Collections;
+using Item.Grid;
+using TMPro;
+using Unity.VisualScripting;
+using UnityEngine;
+using UnityEngine.InputSystem.Controls;
+using UnityEngine.UI;
+
+public class TutorialSetter : MonoBehaviour
+{
+    private Coroutine tutorialCoroutine;
+    
+    //Inventario
+    [SerializeField] private GameObject inventario;
+    private GameObject firstGridSlot;
+    private NextStepTutorial nextStepTutorial;
+    
+    
+    //Limitar clicks na tela
+    [SerializeField] private float tutorialStartTime;
+    [SerializeField] private Image tutorialStartImage;
+    [SerializeField] private DropItemTutorial dropItemTutorial;
+    
+    [Header("Mensagens")]
+    [SerializeField] private GameObject FirstMessage;
+    [SerializeField] private GameObject SecondMessage;
+    [SerializeField] private GameObject ThirdMessage;
+    [SerializeField] private GameObject FourthMessage;
+    [SerializeField] private GameObject FifthMessage;
+    [SerializeField] private GameObject SixthMessage;
+    
+    
+    private bool isClickableSecondMessage = true;
+    private bool isClickableThirdMessage = true;
+    private bool isClickableFourthMessage = false;
+    
+    private void Start()
+    {
+        tutorialCoroutine = StartCoroutine(TutorialStart());
+    }
+
+    private IEnumerator TutorialStart()
+    {
+        while (tutorialStartTime > 0)
+        {
+            tutorialStartTime -= Time.deltaTime;
+            yield return null;
+        }
+        
+        FirstMessage.SetActive(true);
+    }
+
+    private IEnumerator MachineCooldown()
+    {
+        while (tutorialStartTime > 0)
+        {
+            tutorialStartTime -= Time.deltaTime;
+            yield return null;
+        }
+        
+        FourthMessage.SetActive(true);
+        isClickableFourthMessage = true;
+    }
+
+    public void FirstMessageButton()
+    {
+        tutorialStartImage.enabled = false;
+        FirstMessage.SetActive(false);
+        SecondMessage.SetActive(true);
+    }
+
+    public void SecondMessageButton()
+    {
+        if (isClickableSecondMessage)
+        {
+            isClickableSecondMessage = false;
+            SecondMessage.SetActive(false);
+            ThirdMessage.SetActive(true);
+            
+            GetGridSlot();
+
+            firstGridSlot.AddComponent<NextStepTutorial>();
+
+            nextStepTutorial = firstGridSlot.GetComponent<NextStepTutorial>();
+            
+            nextStepTutorial.clickedMachine.AddListener(CoffeeMachineButton);
+        }
+    }
+
+    public void CoffeeMachineButton()
+    {
+        if (isClickableThirdMessage)
+        {
+            isClickableThirdMessage = false;
+            ThirdMessage.SetActive(false);
+
+            tutorialStartTime = 4f;
+            tutorialCoroutine = StartCoroutine(MachineCooldown());
+        }
+
+        if (isClickableFourthMessage)
+        {
+            isClickableFourthMessage = false;
+            FourthMessage.SetActive(false);
+            FifthMessage.SetActive(true);
+            
+            dropItemTutorial.onDropped.AddListener(DropItemTutorial);
+            dropItemTutorial.finalOrder.AddListener(FinalOrderTutorial);
+        }
+    }
+
+    private void DropItemTutorial()
+    {
+        FifthMessage.SetActive(false);
+        SixthMessage.SetActive(true);
+    }
+
+    private void FinalOrderTutorial()
+    {
+        FifthMessage.SetActive(false);
+        SecondMessage.SetActive(false);
+        ThirdMessage.SetActive(false);
+        FourthMessage.SetActive(false);
+        FifthMessage.SetActive(false);
+        SixthMessage.SetActive(false);
+    }
+
+    private void GetGridSlot()
+    {
+        firstGridSlot = inventario.transform.GetChild(0).GetChild(0).gameObject;
+    }
+}
