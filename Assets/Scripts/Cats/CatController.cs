@@ -132,6 +132,7 @@ public class CatController : MonoBehaviour
 
         _spawnController.FreeUpPosition(_positionIndex);
         _dropSlot.SetBackgroundActive(false);
+        _dropSlot.StopTimer();
         GameManager.Instance.AddCoins(pedidos.value);
         
         Destroy(gameObject);

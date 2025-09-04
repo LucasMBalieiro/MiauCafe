@@ -53,6 +53,14 @@ public class PedidoDropSlot : MonoBehaviour, IDropHandler
             timerPedidoText.enabled = false;
         }
     }
+
+    public void StopTimer()
+    {
+        if (_timerCoroutine != null)
+        {
+            StopCoroutine(_timerCoroutine);
+        }
+    }
     
     private IEnumerator TimerCoroutine()
     {
