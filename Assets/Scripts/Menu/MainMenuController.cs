@@ -22,8 +22,9 @@ public class MainMenuController : MonoBehaviour, IDataPersistence
     {
         bool hasSaveData = DataPersistenceManager.Instance.HasSaveData();
 
-        if (hasSaveData && (_day != 0 || _day != 5))
+        if (hasSaveData && (_day != 0 && _day != 5))
         {
+            Debug.Log("Current loaded day:" + _day);
             loadButton.interactable = true;
             GameData.SetActive(true);
         }

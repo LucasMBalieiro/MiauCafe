@@ -10,7 +10,7 @@ public class SoundManager : MonoBehaviour, IDataPersistence
 
     [Header("Música")]
     [SerializeField] private AudioClip backgroundMusic;
-    [SerializeField][Range(0f, 1f)] private float musicVolume = 1f;
+    [SerializeField][Range(0f, 1f)] public float musicVolume = 1f;
     
     [Header("Efeitos Sonoros")]
     [SerializeField] private AudioClip[] soundEffects;

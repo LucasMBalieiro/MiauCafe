@@ -1,3 +1,4 @@
+using Managers;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
@@ -8,6 +9,7 @@ public class CircularSlider : MonoBehaviour, IDragHandler, IPointerDownHandler, 
     [Header("UI References")]
     [SerializeField] private Image fillImage;
     [SerializeField] private RectTransform handleTransform;
+    [SerializeField] private bool isMusicSlider;
 
     [Header("Slider Settings")]
     [SerializeField, Range(0f, 1f)] public float sliderValue = 0.5f;
@@ -24,6 +26,8 @@ public class CircularSlider : MonoBehaviour, IDragHandler, IPointerDownHandler, 
     private void Awake()
     {
         rectTransform = GetComponent<RectTransform>();
+        sliderValue = isMusicSlider ? SoundManager.Instance.musicVolume : SoundManager.Instance.sfxVolume;
+        
         UpdateSliderVisuals(sliderValue);
     }
 
@@ -58,6 +62,9 @@ public class CircularSlider : MonoBehaviour, IDragHandler, IPointerDownHandler, 
 
         // Normalize the angle to a 0-1 value
         sliderValue = (clampedAngle - startAngle) / (endAngle - startAngle);
+        
+        if(sliderValue < 0.01f)
+            sliderValue = 0;
         
         UpdateSliderVisuals(sliderValue);
         OnValueChanged?.Invoke(sliderValue);

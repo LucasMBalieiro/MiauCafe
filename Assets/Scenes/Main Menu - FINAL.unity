@@ -1311,6 +1311,10 @@ PrefabInstance:
       value: 270
       objectReference: {fileID: 0}
     - target: {fileID: 6905432073130521543, guid: fafa0bc10152dff449e98f63b02856f2, type: 3}
+      propertyPath: isMusicSlider
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6905432073130521543, guid: fafa0bc10152dff449e98f63b02856f2, type: 3}
       propertyPath: OnValueChanged.m_PersistentCalls.m_Calls.Array.size
       value: 1
       objectReference: {fileID: 0}
